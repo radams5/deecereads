@@ -31,3 +31,18 @@
     transform: rotate(360deg);
   }
 }
+
+.LandingMainDiv{
+display: flex;
+flex-direction: column
+}
+
+.NYTBestsellers{
+  display: flex;
+  justify-content: space-between;
+}
+
+.NYTBestSellerBookImg{
+  height: 100px;
+  width: 80px;
+}
