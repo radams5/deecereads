@@ -23,7 +23,6 @@ constructor(){
   }
   try {
     let res = await axios.post('/register', user)
-    console.log(res)
     this.props.updateUser(res.data)
     this.props.history.push('/UserHomePage')
   } catch(err) {

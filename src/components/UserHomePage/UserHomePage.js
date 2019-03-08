@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {updateUser, updateBook} from './../../ducks/reducer'
+import {updateUser, updateBook, updateGroup} from './../../ducks/reducer'
 import axios from 'axios'
 import {Link} from 'react-router-dom'
 
@@ -74,18 +74,29 @@ if (!id){
       wishList: res.data
     })
   }
+  removeBookCurrent = async (book) => {
+    console.log(book)
+    let id = this.props.id
+    let isbn = book.isbn
+    let body = {isbn: isbn, id: id}
+    let res = await axios.delete('/deleteBookCurrent', body)
+    this.setState = ({
+      current: res.data
+    })
+  }
   
   render(){
-    console.log(444444, this.state.current)
+    console.log(this.props)
     let currentlyReading = this.state.current.map((book) => {
       return(
         <div>
           <div>{book.title}</div>
           <Link to='/BookPage'>
-            <button onClick={this.props.updateBook(book)}>
+            <button onClick={()=>this.props.updateBook(book)}>
              <img src={book.img} alt={book.title}/>
             </button>          
           </Link>
+          <button onClick={() => this.removeBook(book)}>Remove book</button>
         </div>
       )
     })
@@ -93,7 +104,11 @@ if (!id){
       return(
         <div>
           <div>{group.name}</div>
-          <Link to='/groups'><img src={group.img} alt={group.name}/></Link>
+          <button onClick={()=>this.props.updateGroup(group)}>
+            <Link to='/groups'>
+              <img src={group.img} alt={group.name}/>
+            </Link>
+          </button>  
         </div>
       )
     })
@@ -101,7 +116,11 @@ if (!id){
       return(
         <div>
           <div>{book.title}</div>
-          <Link to='/groups' ><img src={book.img} alt={book.title}/></Link>
+          <Link to='/BookPage' >
+          <button onClick={()=>this.props.updateBook(book)}>
+             <img src={book.img} alt={book.title}/>
+            </button>  
+          </Link>
         </div>
       )
     })
@@ -109,7 +128,11 @@ if (!id){
       return(
         <div>
           <div>{book.title}</div>
-          <Link to='/groups'><img src={book.img} alt={book.title}/></Link>
+          <Link to='/BookPage'>
+          <button onClick={()=>this.props.updateBook(book)}>
+             <img src={book.img} alt={book.title}/>
+            </button>  
+          </Link>
         </div>
       )
     })
@@ -144,7 +167,8 @@ const mapStateToProps = (reduxState) => {
 }
 const mapDispatchToProps ={
   updateUser,
-  updateBook
+  updateBook,
+  updateGroup
 }
 
 export default connect (mapStateToProps, mapDispatchToProps)(UserHomePage)

@@ -1,10 +1,11 @@
 import React, {Component} from 'react'
 import axios from 'axios'
 import {Link} from 'react-router-dom'
+import {connect} from 'react-redux'
 
 
 
-export default class Landing extends Component{
+class Landing extends Component{
   constructor(){
     super()
     this.state = {
@@ -19,7 +20,6 @@ export default class Landing extends Component{
   }
   
   getBestSellers = async () => {
-    console.log('hit')
     let res = await axios.get('https://api.nytimes.com/svc/books/v3/lists/current/hardcover-nonfiction.json?api-key=MNQo2jhcDKGhq0bapkzfb0063kGyxsuE')
     console.log(res.data)
     this.setState({
@@ -32,13 +32,13 @@ export default class Landing extends Component{
   }
 
   render(){
-    console.log(this.state.BestSellersNonFiction)
    let BestSellersNonFiction = this.state.BestSellersNonFiction.map((book) => { 
+     console.log(this.state)
     return(        
       <div className='NYTBestsellerBookContainer'>                     
           <div>{book.title}</div>
           <div>{book.author}</div>
-          <Link to={`/book/${book.title}`}> <img src={book.book_image} alt={book.title} className='NYTBestSellerBookImg'/> </Link>
+          <Link to={`/bookPage`}> <img src={book.book_image} alt={book.title} className='NYTBestSellerBookImg'/> </Link>
      </div>
     )
 })
@@ -47,11 +47,11 @@ export default class Landing extends Component{
       <div className='NYTBestsellerBookContainer'>                     
           <div>{book.title}</div>
           <div>{book.author}</div>
-          <Link to='/book.title'> <img src={book.book_image} alt={book.title} className='NYTBestSellerBookImg'/> </Link>
+          <Link to='/bookPage'> <img src={book.book_image} alt={book.title} className='NYTBestSellerBookImg'/> </Link>
+          
      </div>
     )
 })
-  
     return(
       <div className='LandingMainDiv'>
       
@@ -75,3 +75,15 @@ export default class Landing extends Component{
     )
   }
 }
+const mapStateToProps = (reduxState) => {
+  return{
+    username: reduxState.username,
+    id: reduxState.id
+  }
+}
+const mapDispatchToProps = {
+  
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Landing) 

@@ -41,8 +41,8 @@ massive(CONNECTION_STRING).then(db => {
 
 //Endpoints
 
-app.get('/user/groups', ctrl.getGroups)
 app.get('/users', ctrl.getUsers)
+app.post('/group', ctrl.getGroup)
 app.post('/current', ctrl.current)
 app.post('/myGroups', ctrl.myGroups)
 app.post('/library', ctrl.library)
@@ -50,6 +50,14 @@ app.post('/wishList', ctrl.wishList)
 app.post('/bookReview', ctrl.bookReview)
 app.post('/register', ctrl.register)
 app.post('/login', ctrl.login)
-  
+app.put('/updateBookReview', ctrl.updateBookReview)
+app.put('/updateBookRating', ctrl.updateBookRating)  
+app.put('/addToLibrary', ctrl.addToLibrary)  
+app.put('/addToWishList', ctrl.addToWishList)  
+app.put('/addToCurrentlyReading', ctrl.addToCurrentlyReading)  
+// app.delete('deleteBookCurrent', ctrl.deleteBook)  
+// app.delete('deleteBookLibrary', ctrl.deleteBookLibrary)  
+// app.delete('deleteBookWishList', ctrl.deleteBookWishList)  
+
 
 

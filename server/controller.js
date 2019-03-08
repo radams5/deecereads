@@ -3,10 +3,11 @@ const bcrypt = require('bcryptjs')
 module.exports={
 
 
-  getGroups: async (req, res) => {
-    const {user_id} = req.body
+  getGroup: async (req, res) => {
+    const {groupId} = req.body
     const db = req.app.get('db')
-    let groups = await db.get_groups(user_id)
+    let groupMembers = await db.get_groups({groupId})
+    res.status(200).send(groupMembers)
   },
 
   register: async (req, res) => {
@@ -38,7 +39,7 @@ module.exports={
     let user = await db.login({username})
     user = user[0]
     if (!user) {
-      return res.sendStatus(404)
+      return res.sendStatus(401)
     }
     
     let authenticated = bcrypt.compareSync(password, user.password)
@@ -55,7 +56,6 @@ module.exports={
     }
   },
   getUsers: (req, res) => {
-    console.log(res.session)
     const {user} = req.session
     if(user){
       res.status(200).send(user)
@@ -99,8 +99,83 @@ module.exports={
     const {id, bookId} = req.body
     const db = req.app.get('db')
     let bookReview = await db.BookPageRequests.book_review({id, bookId})
+    bookReview = bookReview[0]
     if (bookReview){
       res.status(200).send(bookReview)
     }
-  }
+  },
+  updateBookReview: async (req, res) => {
+    const {id, bookId, review} = req.body
+    const db = req.app.get('db')
+    let bookReview = await db.BookPageRequests.update_book_review({id, bookId, review})
+    bookReview = bookReview[0]
+    if(bookReview){
+      res.status(200).send(bookReview)
+    }
+  },
+  updateBookRating: async (req, res) => {
+    const {id, bookId, rating} = req.body
+    const db = req.app.get('db')
+    let bookRating = await db.BookPageRequests.update_book_rating({id, bookId, rating})
+    bookRating = bookRating[0]
+    if(bookRating){
+      res.status(200).send(bookRating)
+    }
+  },
+  addToLibrary: async (req, res) => {
+    console.log('hit')
+    const {id, bookId} = req.body
+    const db = req.app.get('db')
+    let newLibrary = await db.BookPageRequests.update_library({id, bookId})
+    newLibrary = newLibrary[0]
+    if(newLibrary){
+      res.status(200).send(newLibrary)
+    }
+  },
+  addToWishList: async (req, res) => {
+    const {id, bookId} = req.body
+    const db = req.app.get('db')
+    let newWishList = await db.BookPageRequests.update_wish_list({id, bookId})
+    newWishList = newWishList[0]
+    if(newWishList){
+      res.status(200).send(newWishList)
+    }
+  },
+  addToCurrentlyReading: async (req, res) => {
+    const {id, bookId} = req.body
+    const db = req.app.get('db')
+    let newCurrentlyReading = await db.BookPageRequests.update_currently_reading({id, bookId})
+    newCurrentlyReading = newCurrentlyReading[0]
+    if(newCurrentlyReading){
+      res.status(200).send(newCurrentlyReading)
+    }
+  },
+  // deleteBookCurrent: async (req, res) => {
+  //   const {id, isbn} = req.body
+  //   const db = req.app.get('db')
+  //   let newCurrentlyReading = await db.UserPageRequests.delete_currently_reading({id, isbn})
+  //   newCurrentlyReading = newCurrentlyReading[0]
+  //   if(newCurrentlyReading){
+  //     res.status(200).send(newCurrentlyReading)
+  //   }
+  // },
+  // deleteBookLibrary: async (req, res) => {
+  //   const {isbn} = req.body
+  //   const db = req.app.get('db')
+  //   let newLibrary = await db.UserPageRequests.delete_library({bookId, isbn})
+  //   newLibrary = newLibrary[0]
+  //   if(newLibrary){
+  //     res.status(200).send(newLibrary)
+  //   }
+  // },
+  // deleteBookwishList: async (req, res) => {
+  //   const {isbn, bookId} = req.body
+  //   const db = req.app.get('db')
+  //   let newWishList = await db.UserPageRequests.delete_wish_list({bookId, isbn})
+  //   newWishList = newWishList[0]
+  //   if(newWishList){
+  //     res.status(200).send(newWishList)
+  //   }
+  // },
+ 
 }

@@ -28,9 +28,9 @@ render(){
       <Link to='/UserHomePage'>
         <button>Profile</button>
       </Link>
-      <Link to='/UploadPage'>
+      {/* <Link to='/UploadPage'>
         <button>Upload A Book</button>
-      </Link>
+      </Link> */}
       <Link to='/Login'>
         <button>Sign In</button>
       </Link>
