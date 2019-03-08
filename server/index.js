@@ -55,7 +55,7 @@ app.put('/updateBookRating', ctrl.updateBookRating)
 app.put('/addToLibrary', ctrl.addToLibrary)  
 app.put('/addToWishList', ctrl.addToWishList)  
 app.put('/addToCurrentlyReading', ctrl.addToCurrentlyReading)  
-// app.delete('deleteBookCurrent', ctrl.deleteBook)  
+app.delete('deleteBookCurrent', ctrl.deleteBook)  
 // app.delete('deleteBookLibrary', ctrl.deleteBookLibrary)  
 // app.delete('deleteBookWishList', ctrl.deleteBookWishList)  
 

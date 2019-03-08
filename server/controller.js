@@ -150,15 +150,15 @@ module.exports={
       res.status(200).send(newCurrentlyReading)
     }
   },
-  // deleteBookCurrent: async (req, res) => {
-  //   const {id, isbn} = req.body
-  //   const db = req.app.get('db')
-  //   let newCurrentlyReading = await db.UserPageRequests.delete_currently_reading({id, isbn})
-  //   newCurrentlyReading = newCurrentlyReading[0]
-  //   if(newCurrentlyReading){
-  //     res.status(200).send(newCurrentlyReading)
-  //   }
-  // },
+  deleteBookCurrent: async (req, res) => {
+    const {id, isbn} = req.body
+    const db = req.app.get('db')
+    let newCurrentlyReading = await db.UserPageRequests.delete_currently_reading({id, isbn})
+    newCurrentlyReading = newCurrentlyReading[0]
+    if(newCurrentlyReading){
+      res.status(200).send(newCurrentlyReading)
+    }
+  },
   // deleteBookLibrary: async (req, res) => {
   //   const {isbn} = req.body
   //   const db = req.app.get('db')
