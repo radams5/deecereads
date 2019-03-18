@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import axios from 'axios'
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
+import {addBook, updateBook} from '../../ducks/reducer'
 
 
 
@@ -21,7 +22,6 @@ class Landing extends Component{
   
   getBestSellers = async () => {
     let res = await axios.get('https://api.nytimes.com/svc/books/v3/lists/current/hardcover-nonfiction.json?api-key=MNQo2jhcDKGhq0bapkzfb0063kGyxsuE')
-    console.log(res.data)
     this.setState({
       BestSellersNonFiction: res.data.results.books
     }) 
@@ -32,58 +32,68 @@ class Landing extends Component{
   }
 
   render(){
-   let BestSellersNonFiction = this.state.BestSellersNonFiction.map((book) => { 
-     console.log(this.state)
-    return(        
-      <div className='NYTBestsellerBookContainer'>                     
-          <div>{book.title}</div>
-          <div>{book.author}</div>
-          <Link to={`/bookPage`}> <img src={book.book_image} alt={book.title} className='NYTBestSellerBookImg'/> </Link>
+    let BestSellersNonFiction = this.state.BestSellersNonFiction.map((book) => { 
+      return(        
+        <div className='NYTBestsellerBookContainer'>                     
+          {/* <div>{book.title}</div>
+          <div>{book.author}</div> */}
+          <Link to={`/bookPage`}> 
+            <button onClick={() => this.props.addBook(book)} className="BookButton">
+              <img src={book.book_image} alt={book.title} className='NYTBestSellerBookImg'/> 
+            </button>
+          </Link>
      </div>
     )
 })
    let BestSellersFiction = this.state.BestSellersFiction.map((book) => { 
     return(        
       <div className='NYTBestsellerBookContainer'>                     
-          <div>{book.title}</div>
-          <div>{book.author}</div>
-          <Link to='/bookPage'> <img src={book.book_image} alt={book.title} className='NYTBestSellerBookImg'/> </Link>
+          {/* <div>{book.title}</div>
+          <div>{book.author}</div> */}
+          <Link to='/bookPage'>
+            <button onClick={ () => this.props.addBook(book)} className="BookButton">
+                 <img src={book.book_image} alt={book.title} className='NYTBestSellerBookImg'/> 
+            </button>
+           </Link>
           
      </div>
     )
 })
     return(
       <div className='LandingMainDiv'>
-      
-        <div className='NYTBestsellers' >
-          
+        <div className="LandingPageBookshelfContainer">
+           <div className='NYTBestsellers' >          
               <h2>BestSellers nonfiction</h2>
-              {BestSellersNonFiction}
-            
+              <div className="NYTBestsellerContainer">{BestSellersNonFiction}</div>
+            </div> 
         </div>
-        <div className='NYTBestsellers' > 
-        
+        <div className="LandingPageBookshelfContainer">
+          <div className='NYTBestsellers' >             
             <h2>BestSellersFiction</h2>
-            {BestSellersFiction}
-          
+            <div className="NYTBestsellerContainer">{BestSellersFiction}</div>
+          </div>
         </div>
-        <div>
-          <div className='FeaturedBook'>Featured Book1</div>
-          <div className='FeaturedBook'>Featured Book2</div>
+        <div className="LandingPageBookshelfContainer">
+          <div className='NYTBestsellers' >   
+              <h2>Featured Books</h2>
+              <div className="FeaturedBooksContainer">
+                <div className='FeaturedBook'>Your Book Here</div>
+                <div className='FeaturedBook'>Featured Book2</div>
+              </div>
+          </div>
         </div>
+            
+          <div>Footer</div>
       </div>
     )
   }
 }
-const mapStateToProps = (reduxState) => {
-  return{
-    username: reduxState.username,
-    id: reduxState.id
-  }
-}
+
+
 const mapDispatchToProps = {
-  
+ addBook,
+ updateBook
 }
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(Landing) 
+export default connect(null, mapDispatchToProps)(Landing) 

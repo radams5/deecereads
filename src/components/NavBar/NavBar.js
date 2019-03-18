@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
+import SearchBar from '../SearchBar/SearchBar'
 
 
 
@@ -19,12 +20,12 @@ render(){
       <Link to='/'>
         <button>Home</button>
       </Link>
-      <Link to='/BookPage'>
+      {/* <Link to='/BookPage'>
         <button>BookPage</button>
-      </Link>
-      <Link to='/Groups'>
+      </Link> */}
+      {/* <Link to='/Groups'>
         <button>Group</button>
-      </Link>
+      </Link> */}
       <Link to='/UserHomePage'>
         <button>Profile</button>
       </Link>
@@ -35,7 +36,7 @@ render(){
         <button>Sign In</button>
       </Link>
    
-      
+     <SearchBar/> 
    </div>
   )
 }

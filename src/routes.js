@@ -6,6 +6,10 @@ import Landing from './components/Landing/Landing'
 // import UploadPage from './components/UploadPage/UploadPage'
 import UserHomePage from './components/UserHomePage/UserHomePage'
 import Login from './components/Login/Login'
+import UsersCurrentlyReadingPage from './components/UserHomePage/UsersCollection/UsersCurrentlyReadingPage'
+import UsersLibrary from './components/UserHomePage/UsersCollection/UsersLibrary'
+import UsersWishList from './components/UserHomePage/UsersCollection/UsersWishList'
+
 
 
 export default (
@@ -16,5 +20,8 @@ export default (
     {/* <Route  path='/UploadPage' component={UploadPage}/> */}
     <Route  path='/UserHomePage' component={UserHomePage}/>
     <Route  path='/Login' component={Login}/>
+    <Route  path='/CurrentlyReading' component={UsersCurrentlyReadingPage}/>
+    <Route  path='/Library' component={UsersLibrary}/>
+    <Route  path='/WishList' component={UsersWishList}/>
   </Switch>
 )

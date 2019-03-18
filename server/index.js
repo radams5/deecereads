@@ -41,23 +41,24 @@ massive(CONNECTION_STRING).then(db => {
 
 //Endpoints
 
-app.get('/users', ctrl.getUsers)
-app.post('/group', ctrl.getGroup)
-app.post('/current', ctrl.current)
-app.post('/myGroups', ctrl.myGroups)
-app.post('/library', ctrl.library)
-app.post('/wishList', ctrl.wishList)
+app.get('/user', ctrl.getUser)
+app.post('/addToDatabase', ctrl.addToDatabase)
+app.get('/current', ctrl.current)
+app.get('/library', ctrl.library)
+app.get('/wishList', ctrl.wishList)
 app.post('/bookReview', ctrl.bookReview)
 app.post('/register', ctrl.register)
 app.post('/login', ctrl.login)
+// app.post('/myGroups', ctrl.myGroups)
+// app.post('/group', ctrl.getGroup)
 app.put('/updateBookReview', ctrl.updateBookReview)
 app.put('/updateBookRating', ctrl.updateBookRating)  
 app.put('/addToLibrary', ctrl.addToLibrary)  
 app.put('/addToWishList', ctrl.addToWishList)  
 app.put('/addToCurrentlyReading', ctrl.addToCurrentlyReading)  
-app.delete('deleteBookCurrent', ctrl.deleteBook)  
-// app.delete('deleteBookLibrary', ctrl.deleteBookLibrary)  
-// app.delete('deleteBookWishList', ctrl.deleteBookWishList)  
+app.delete('/deleteBookCurrent/:bookId', ctrl.deleteBookCurrent)  
+app.delete('/deleteBookLibrary/:bookId', ctrl.deleteBookLibrary)  
+app.delete('/deleteBookWishList/:bookId', ctrl.deleteBookWishList)  
 
 
 

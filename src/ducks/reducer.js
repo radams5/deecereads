@@ -4,12 +4,15 @@ const initialState = {
   title: '',
   img: '',
   bookId: 0,
-  groupId: 0
+  groupId: 0,
+  isbn: 0,
+  summary: ''
 }
 
 const UPDATE_USER = 'UPDATE_USER'
 const UPDATE_BOOK = 'UPDATE_BOOK'
 const UPDATE_GROUP = 'UPDATE_GROUP'
+const ADD_BOOK = 'ADD_BOOK'
 
 
 export function updateUser(user){
@@ -19,32 +22,43 @@ export function updateUser(user){
   }
 }
 export function updateBook(book){
-  console.log('qqqqqqqqq', book)
   return {
     type: UPDATE_BOOK,
     payload: book
   }
 }
 export function updateGroup(group){
-  console.log('ioioioi', group)
   return{
     type: UPDATE_GROUP,
     payload: group
+  }
+}
+export function addBook(book){
+
+  return{
+    type: ADD_BOOK,
+    payload: book
   }
 }
 
 export default function reducer( state = initialState, action){
   const {type, payload} = action
   switch(type){
-    case UPDATE_USER:
+    case UPDATE_USER: {
       const {id, username} = payload
-      return{...state, id, username}
-    case UPDATE_BOOK:
-      const {title, img, id:bookId} = payload
-      return{...state, title, img, bookId}
-    case UPDATE_GROUP:
+      return{...state, id, username}}
+    case UPDATE_BOOK: {
+      const {title, img, id:bookId, isbn, summary} = payload
+      return{...state, title, img, bookId, isbn, summary}}
+    case UPDATE_GROUP:{
       const {id:groupId, img:groupImg, group_name:groupName} = payload
-      return{...state, groupId, groupImg, groupName}
+      return{...state, groupId, groupImg, groupName}}
+    case ADD_BOOK: {
+      const {title, book_image, primary_isbn10, description} = payload
+      const img = book_image  
+      const summary = description    
+      const isbn = primary_isbn10
+      return{...state, title, img, isbn, summary}}
     default:
       return state
   }

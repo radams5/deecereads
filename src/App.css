@@ -31,18 +31,163 @@
     transform: rotate(360deg);
   }
 }
-
-.LandingMainDiv{
-display: flex;
-flex-direction: column
+.NavBar{
+  height: 75px;
+  background-color: tan;
 }
 
+.LandingMainDiv{ 
+ display: flex;
+ flex-direction: column
+}
+
+
+/*----------------NYT Page-----------*/
+
 .NYTBestsellers{
+  background-image: url(./images/bookshelf.png);
+  background-size: cover;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  overflow: auto;
+  white-space: nowrap;
+  height: 40vh;
+}
+.NYTBestsellerContainer{
+  display: flex;
+  overflow: auto;
+  white-space: nowrap;
+}
+.FeaturedBooksContainer{
+  display: flex;
+  justify-content: space-around;
+}
+.LandingPageAdBooks{
+  background-image: url(./images/bookshelf.png);
+  background-size: cover;
+  display: flex;
+  justify-content: space-around;
+  width: 99.38vw;
+  align-items: flex-end;
+  height: 30vh;
+}
+.BookShelfBottom{
+  background-image: url(./images/bookshelf.png);
+  background-size: cover;
+  height: 1em;
+  width: 99.38vw;
 }
 
 .NYTBestSellerBookImg{
-  height: 100px;
-  width: 80px;
+  height: 10em;
+  width: 8em;
+}
+.FeaturedBook{
+  height: 10em;
+  width: 8em; 
+  background: white;
+  
+}
+
+/*  --------------User Page--------------*/
+
+
+.UserPageCombinedContainters{
+  display: flex;
+  flex-direction: column;
+}
+.UserPageGroupContainter{
+  background-image: url(./images/bookshelf.png);
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+ 
+}
+.SingleBookContainer{
+  display: flex;
+  overflow: auto;
+  white-space: nowrap;
+}
+.singleBook{
+  display: flex;
+  flex-direction: column;
+  margin: 25px
+}
+.BookImage{
+  height: 10em;
+  width: 8em;
+}
+/*------------------Login------------------------ */
+
+.LoginMainDiv{
+  background-image: url(./images/bookshelf_background.jpg);
+ background-size: cover;
+ height: 100vh;
+ display: flex;
+ justify-content: center;
+ align-content: center;
+ align-items: center
+}
+/* .LoginMainDivOpacitySheet{
+  background-color: gray;
+  opacity: .5;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center
+} */
+.LoginBox{
+  border: 2px solid black;
+  background: tan;
+  height: 20vh;
+  width: 50vw;
+  
+}
+::-webkit-scrollbar {
+
+
+}
+.BookButton{
+  background: none;
+  border: none
+}
+/* ---------Book Page--------------- */
+.BookPageMainDiv{
+  background-image: url(./images/bookpage_background.png);
+   background-size: cover;
+   padding-top: 2em
+}
+
+/* -----------Users Personal Library ----------*/
+
+.UserPagebookshelfContainer{
+  display: flex;
+  flex-direction: column;
+  height: 40vh;
+}
+.UsersPersonalLibraryContainer{
+  background-image: url(./images/bookshelf.png);
+  
+  background-size: 100vw 13em;
+  /* background-repeat: repeat; */
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  
+}
+.UserPersonalNav{
+  display: flex;
+  justify-content: center;
+  background: tan;
+}
+.UserPersonalNav h6{
+margin: 5px;
+}
+.UserPersonalPagesTitles{
+  background-image: url(./images/bookpage_background.png);
+  background-size: cover;
+  font-size: 40px
+
 }

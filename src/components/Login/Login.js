@@ -17,17 +17,17 @@ constructor(){
 
   register = async () => {
    
-  let user = {
-  username: this.state.username,
-  password: this.state.password
-  }
-  try {
-    let res = await axios.post('/register', user)
-    this.props.updateUser(res.data)
-    this.props.history.push('/UserHomePage')
-  } catch(err) {
+    let user = {
+    username: this.state.username,
+    password: this.state.password
+    }
+    try {
+      let res = await axios.post('/register', user)
+      this.props.updateUser(res.data)
+      this.props.history.push('/UserHomePage')
+    } catch(err) {
 
-  }
+    }
   }
 
   login = async () => {
@@ -44,20 +44,26 @@ constructor(){
       } 
   }
   handleChange(prop, val){
-  this.setState({
-    [prop]: val
-  })
+    this.setState({
+      [prop]: val
+    })
   }
 
   render(){
     // console.log(this.props)
   return(
-    <div>
-      <input placeholder='username' onChange={e => this.handleChange('username', e.target.value)}/>
-      <input placeholder='password' onChange={e => this.handleChange('password', e.target.value)}/>
-    
-      <button onClick={this.login}>Login</button>
-      <button onClick={this.register}>Register</button>
+    <div className="LoginMainDiv">
+      <div className="LoginMainDivOpacitySheet">
+        <div className='LoginBox'>
+          <h1>Please Login</h1>
+            <div>
+              <input placeholder='username' onChange={e =>    this.handleChange('username', e.target.value)}/>
+              <input placeholder='password' onChange={e => this.handleChange('password', e.target.value)}/>
+            </div>
+          <button onClick={this.login}>Login</button>
+          <button onClick={this.register}>Register</button>
+        </div>
+      </div>
     </div>
     )
   }
