@@ -9,6 +9,7 @@ import Login from './components/Login/Login'
 import UsersCurrentlyReadingPage from './components/UserHomePage/UsersCollection/UsersCurrentlyReadingPage'
 import UsersLibrary from './components/UserHomePage/UsersCollection/UsersLibrary'
 import UsersWishList from './components/UserHomePage/UsersCollection/UsersWishList'
+import BookSearch from './components/BookSearch/BookSearch'
 
 
 
@@ -20,6 +21,7 @@ export default (
     {/* <Route  path='/UploadPage' component={UploadPage}/> */}
     <Route  path='/UserHomePage' component={UserHomePage}/>
     <Route  path='/Login' component={Login}/>
+    <Route  path='/BookSearch' component={BookSearch}/>
     <Route  path='/CurrentlyReading' component={UsersCurrentlyReadingPage}/>
     <Route  path='/Library' component={UsersLibrary}/>
     <Route  path='/WishList' component={UsersWishList}/>

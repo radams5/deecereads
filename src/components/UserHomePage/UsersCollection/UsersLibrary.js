@@ -22,6 +22,18 @@ class UsersLibrary extends Component{
       library: res.data
     })
   }
+  deleteBookLibrary = async (book) => {
+
+    try{
+      let res = await axios.delete(`/deleteBookLibrary/${book.id}`)
+      this.getUserInfo()
+    }catch(err)
+    {
+      console.log(err)
+    }
+    this.getCurrentlyReading()
+    alert('book deleted')
+  }
 
 
 
@@ -36,7 +48,7 @@ render(){
             </button>          
           </Link>
         
-        <button onClick={() => this.deleteBookCurrent(book)}>Remove book</button>
+        <button onClick={() => this.deleteBookLibrary(book)}>Remove book</button>
       </div>
     )
   })

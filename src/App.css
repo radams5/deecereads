@@ -98,6 +98,7 @@
 }
 .UserPageGroupContainter{
   background-image: url(./images/bookshelf.png);
+  min-height: 40vh;
   background-size: cover;
   display: flex;
   flex-direction: column;
@@ -111,7 +112,8 @@
 .singleBook{
   display: flex;
   flex-direction: column;
-  margin: 25px
+  margin: 20px;
+  max-height: 10em;
 }
 .BookImage{
   height: 10em;
@@ -165,13 +167,12 @@
 .UserPagebookshelfContainer{
   display: flex;
   flex-direction: column;
-  height: 40vh;
+  height: 30vh;
 }
 .UsersPersonalLibraryContainer{
-  background-image: url(./images/bookshelf.png);
-  
+  background-image: url(./images/bookshelf.png);  
   background-size: 100vw 13em;
-  /* background-repeat: repeat; */
+  min-height: 720px; /*This line is keeping the page fill, but it also messes up the spacing vertically */
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;

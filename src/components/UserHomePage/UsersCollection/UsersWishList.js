@@ -22,6 +22,18 @@ class UsersWishList extends Component{
       wishList: res.data
     })
   }
+  deleteBookWishList = async (book) => {
+    try{
+      let res = await axios.delete(`/deleteBookWishList/${book.id}`)
+      this.getUserInfo()
+  
+    }catch(err)
+    {
+      console.log(err)
+    }
+    this.getCurrentlyReading()
+    alert('book deleted')
+  }
 
 render(){
   let wishList = this.state.wishList.map((book) => {
@@ -34,7 +46,7 @@ render(){
             </button>          
           </Link>
         
-        <button onClick={() => this.deleteBookCurrent(book)}>Remove book</button>
+        <button onClick={() => this.deleteBookWishList(book)}>Remove book</button>
       </div>
     )
   })

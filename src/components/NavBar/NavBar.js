@@ -5,12 +5,18 @@ import SearchBar from '../SearchBar/SearchBar'
 
 
 export default class NavBar extends Component{
-constructor(){
-  super()
-  this.state = {
-
+  constructor(){
+    super()
+    this.state = {
+      searchResults: []
+    }
+    this.setSearchResults = this.setSearchResults.bind(this)
   }
-}
+
+  setSearchResults(searchResults){
+    this.setState({searchResults})
+    console.log(11111111, this.state)
+  }
 
 
 
@@ -32,11 +38,14 @@ render(){
       {/* <Link to='/UploadPage'>
         <button>Upload A Book</button>
       </Link> */}
+      <Link to='/BookSearch'>
+        <button>Find Book</button>
+      </Link>
       <Link to='/Login'>
         <button>Sign In</button>
       </Link>
    
-     <SearchBar/> 
+     <SearchBar setSearchResults={this.setSearchResults}/> 
    </div>
   )
 }

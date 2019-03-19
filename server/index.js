@@ -58,7 +58,9 @@ app.put('/addToWishList', ctrl.addToWishList)
 app.put('/addToCurrentlyReading', ctrl.addToCurrentlyReading)  
 app.delete('/deleteBookCurrent/:bookId', ctrl.deleteBookCurrent)  
 app.delete('/deleteBookLibrary/:bookId', ctrl.deleteBookLibrary)  
-app.delete('/deleteBookWishList/:bookId', ctrl.deleteBookWishList)  
+app.delete('/deleteBookWishList/:bookId', ctrl.deleteBookWishList) 
 
-
+// https://www.googleapis.com/books/v1/volumes?q=isbn:<your_isbn_here>
+// q=inauthor:jk+inauthor:rowling
+// q=intitle:harry+intitle:potter
 
