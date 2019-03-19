@@ -17,9 +17,9 @@ class BookPage extends Component{
       searchBar: ''
     }
   }
-  componentDidMount(){
-  this.addToDatabase()
-  this.pullBookReview()
+   async componentDidMount(){
+  await this.addToDatabase()
+  await this.pullBookReview()
   }
   // componentDidUpdate(prevProps){
   //   if (this.props !== prevProps){
@@ -40,9 +40,11 @@ class BookPage extends Component{
     const {id, bookId} = this.props
     let body = { id: id, bookId: bookId }
     let res = await axios.post('/bookReview', body)
+    console.log(res)
     this.setState({
       bookReview: res.data
     })
+    console.log(this.state)
   }
 //////////////////Updates
 
@@ -109,8 +111,8 @@ class BookPage extends Component{
 
 
   render(){
-    let review = this.state.bookReview.review
-    let rating = this.state.bookReview.rating
+    let review = this.state.bookReview.review ? this.state.bookReview.review : ''
+    let rating = this.state.bookReview.rating ? this.state.bookReview.rating : ''
     return(
       <div>
       <div className="BookPageMainDiv">

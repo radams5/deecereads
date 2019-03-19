@@ -172,7 +172,7 @@
 .UsersPersonalLibraryContainer{
   background-image: url(./images/bookshelf.png);  
   background-size: 100vw 13em;
-  min-height: 720px; /*This line is keeping the page fill, but it also messes up the spacing vertically */
+  /* min-height: 720px; This line is keeping the page fill, but it also messes up the spacing vertically */
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -192,3 +192,18 @@ margin: 5px;
   font-size: 40px
 
 }
+
+
+/* -----------Book Search Page ---------------- */
+.BookSearchPage{
+  background-image: url(./images/bookpage_background.png);
+  background-size: cover;
+  height: 100vh;
+}
+
+.SearchResultBookshelf{
+  background-image: url(./images/bookshelf.png);
+  background-size: cover;
+  padding: 9px
+}
+

@@ -15,12 +15,12 @@ import BookSearch from './components/BookSearch/BookSearch'
 
 export default (
   <Switch>
-    <Route  exact path='/' component={Landing}/>
+    <Route  path='/Home' component={Landing}/>
+    <Route  exact path='/' component={Login}/>
     <Route  path='/BookPage' component={BookPage}/>
     <Route  path='/Groups' component={Groups}/>
     {/* <Route  path='/UploadPage' component={UploadPage}/> */}
     <Route  path='/UserHomePage' component={UserHomePage}/>
-    <Route  path='/Login' component={Login}/>
     <Route  path='/BookSearch' component={BookSearch}/>
     <Route  path='/CurrentlyReading' component={UsersCurrentlyReadingPage}/>
     <Route  path='/Library' component={UsersLibrary}/>

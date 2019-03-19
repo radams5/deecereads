@@ -23,7 +23,7 @@ export default class NavBar extends Component{
 render(){
   return(
     <div>
-      <Link to='/'>
+      <Link to='/Home'>
         <button>Home</button>
       </Link>
       {/* <Link to='/BookPage'>
@@ -41,7 +41,7 @@ render(){
       <Link to='/BookSearch'>
         <button>Find Book</button>
       </Link>
-      <Link to='/Login'>
+      <Link to='/'>
         <button>Sign In</button>
       </Link>
    

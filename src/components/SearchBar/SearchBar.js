@@ -1,8 +1,6 @@
 import React, {Component} from 'react'
-import {connect} from 'react-redux'
 import axios from 'axios';
 import {Link} from 'react-router-dom'
-import BookSearch from '../BookSearch/BookSearch';
 
 class SearchBar extends Component{
 constructor(){
@@ -12,18 +10,9 @@ constructor(){
     titleCheck: false,
     authorCheck: false,
     ISBNCheck: false,
-    searchResults: []
   }
 }
-componentDidMount(){
-  var inputs = document.getElementsByTagName("input");
-      for(var i = 0; i < inputs.length; i++) {
-          if(inputs[i].type == "checkbox") { 
-              inputs[i].checked = false            
-          
-          }
-      }
-    }
+
 
   handleUpdateState(val, prop){
     this.setState({
@@ -34,8 +23,8 @@ componentDidMount(){
   handleChecks(check, trueProp, falseProp1, falseProp2, inputName ){   
       var inputs = document.getElementsByTagName("input");
       for(var i = 0; i < inputs.length; i++) {
-          if(inputs[i].type == "checkbox") { 
-            if(inputs[i].name==inputName && inputs[i].checked!==check) {
+          if(inputs[i].type === "checkbox") { 
+            if(inputs[i].name===inputName && inputs[i].checked!==check) {
               inputs[i].checked=check             
                
           }
@@ -60,10 +49,33 @@ componentDidMount(){
           console.log(this.state)
  }
   handleGetGoogle = async (query) => {
-    console.log(222222, query)
-    let res = await axios.get('https://www.googleapis.com/books/v1/volumes?q=inauthor:jk+inauthor:rowling&key=AIzaSyDou-rWY8KTpFX3CcbtHcAqJ6jnnzN0vd8')
-    console.log(33333, res.data.items)
-    this.props.setSearchResults(res.data.items)
+    try{console.log(222222, query)
+    let arr = query.split(" ")
+    console.log(33333333, arr)
+    if (this.state.titleCheck===true){
+      let res = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=
+      ${arr.map( word => {
+        return ('intitle:' + word)
+      })}
+      &key=AIzaSyDou-rWY8KTpFX3CcbtHcAqJ6jnnzN0vd8`)
+      this.props.setSearchResults(res.data.items)
+    }
+    if (this.state.authorCheck===true){
+      let res = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=
+      ${arr.map( word => {
+        return ('inauthor:' + word)
+      }).join("+")}
+      &key=AIzaSyDou-rWY8KTpFX3CcbtHcAqJ6jnnzN0vd8`)
+      console.log(12341234, res)
+      this.props.setSearchResults(res.data.items)
+    }
+    if (this.state.ISBNCheck===true){
+      let res = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=isbn:${query}&key=AIzaSyDou-rWY8KTpFX3CcbtHcAqJ6jnnzN0vd8`)
+      this.props.setSearchResults(res.data.items)
+    }}catch(err){
+      console.log(err)
+    }
+    
   }
 
   render(){
@@ -72,7 +84,7 @@ componentDidMount(){
     return(
       <div>    
         <input placeholder='book title' onChange={e => this.handleUpdateState(e.target.value, 'searchBar')}/>
-        <Link to='/BookSearch'><button onClick={() => this.handleGetGoogle(this.state.searchBar)}>search</button></Link>
+        <button onClick={() => this.handleGetGoogle(this.state.searchBar)}>search</button>
 
         <div className='CheckBoxesDiv'>
           <input type="checkbox" 
