@@ -24,7 +24,7 @@ constructor(){
     try {
       let res = await axios.post('/register', user)
       this.props.updateUser(res.data)
-      this.props.history.push('/UserHomePage')
+      this.props.history.push('/Home')
     } catch(err) {
 
     }
@@ -38,7 +38,7 @@ constructor(){
       try {
         let res = await axios.post('login', user)
         this.props.updateUser(res.data)
-        this.props.history.push('/UserHomePage')
+        this.props.history.push('/Home')
       } catch(err) {
         
       } 

@@ -4,17 +4,22 @@ import SearchBar from '../SearchBar/SearchBar'
 
 
 
+
 export default class NavBar extends Component{
   constructor(){
     super()
     this.state = {
+      SearchBar: '',
       searchResults: []
     }
-    this.setSearchResults = this.setSearchResults.bind(this)
+    this.setSearchState = this.setSearchState.bind(this)
   }
 
-  setSearchResults(searchResults){
-    this.setState({searchResults})
+  
+  setSearchState(info, partOfState){
+    this.setState({
+      [partOfState]: info
+    })
     console.log(11111111, this.state)
   }
 
@@ -26,26 +31,18 @@ render(){
       <Link to='/Home'>
         <button>Home</button>
       </Link>
-      {/* <Link to='/BookPage'>
-        <button>BookPage</button>
-      </Link> */}
-      {/* <Link to='/Groups'>
-        <button>Group</button>
-      </Link> */}
       <Link to='/UserHomePage'>
         <button>Profile</button>
       </Link>
-      {/* <Link to='/UploadPage'>
-        <button>Upload A Book</button>
-      </Link> */}
+    
       <Link to='/BookSearch'>
-        <button>Find Book</button>
+        <button>Find Books</button>
       </Link>
       <Link to='/'>
         <button>Sign In</button>
       </Link>
    
-     <SearchBar setSearchResults={this.setSearchResults}/> 
+     <SearchBar setSearchState={this.setSearchState} history={this.props.history}/> 
    </div>
   )
 }

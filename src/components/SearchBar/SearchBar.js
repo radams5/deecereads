@@ -1,6 +1,9 @@
 import React, {Component} from 'react'
 import axios from 'axios';
 import {Link} from 'react-router-dom'
+import {connect} from 'react-redux'
+import {addGoogleBooks} from '../../ducks/reducer'
+import {withRouter} from 'react-router'
 
 class SearchBar extends Component{
 constructor(){
@@ -18,7 +21,6 @@ constructor(){
     this.setState({
       [prop]: val
     })
-    console.log(this.state)
   }
   handleChecks(check, trueProp, falseProp1, falseProp2, inputName ){   
       var inputs = document.getElementsByTagName("input");
@@ -46,36 +48,44 @@ constructor(){
           this.setState({
             [trueProp]: false
           })}
-          console.log(this.state)
+      
  }
   handleGetGoogle = async (query) => {
-    try{console.log(222222, query)
-    let arr = query.split(" ")
-    console.log(33333333, arr)
-    if (this.state.titleCheck===true){
-      let res = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=
-      ${arr.map( word => {
-        return ('intitle:' + word)
-      })}
-      &key=AIzaSyDou-rWY8KTpFX3CcbtHcAqJ6jnnzN0vd8`)
-      this.props.setSearchResults(res.data.items)
+    console.log(111111, this.props)
+    if(this.props.history.location.pathname !== '/BookSearch'){
+      this.props.history.push("/BookSearch")
     }
-    if (this.state.authorCheck===true){
-      let res = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=
-      ${arr.map( word => {
-        return ('inauthor:' + word)
-      }).join("+")}
-      &key=AIzaSyDou-rWY8KTpFX3CcbtHcAqJ6jnnzN0vd8`)
-      console.log(12341234, res)
-      this.props.setSearchResults(res.data.items)
+    try{
+      let arr = query.split(" ")
+      if (this.state.titleCheck===true){
+        let res = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=
+        ${arr.map( word => {
+          return ('intitle:' + word)
+        })}
+        &key=AIzaSyDou-rWY8KTpFX3CcbtHcAqJ6jnnzN0vd8`)
+        // this.props.setSearchState(res.data.items, 'searchResults')
+        this.props.addGoogleBooks(res.data.items)
+      }
+      if (this.state.authorCheck===true){
+        let res = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=
+        ${arr.map( word => {
+          return ('inauthor:' + word)
+        }).join("+")}
+        &key=AIzaSyDou-rWY8KTpFX3CcbtHcAqJ6jnnzN0vd8`)
+        console.log(12341234, res)
+        // this.props.setSearchState(res.data.items, 'searchResults')
+        this.props.addGoogleBooks(res.data.items)
     }
-    if (this.state.ISBNCheck===true){
-      let res = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=isbn:${query}&key=AIzaSyDou-rWY8KTpFX3CcbtHcAqJ6jnnzN0vd8`)
-      this.props.setSearchResults(res.data.items)
-    }}catch(err){
+      if (this.state.ISBNCheck===true){
+        let res = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=isbn:${query}&key=AIzaSyDou-rWY8KTpFX3CcbtHcAqJ6jnnzN0vd8`)
+        // this.props.setSearchState(res.data.items, 'searchResults')
+        this.props.addGoogleBooks(res.data.items)
+    }}catch(err){      
       console.log(err)
     }
-    
+    this.setState({
+        searchBar: ''
+      })
   }
 
   render(){
@@ -83,7 +93,7 @@ constructor(){
     
     return(
       <div>    
-        <input placeholder='book title' onChange={e => this.handleUpdateState(e.target.value, 'searchBar')}/>
+        <input placeholder='Title, Author, ISBN'  value={this.state.searchBar} onChange={e => this.handleUpdateState(e.target.value, 'searchBar')}/>
         <button onClick={() => this.handleGetGoogle(this.state.searchBar)}>search</button>
 
         <div className='CheckBoxesDiv'>
@@ -115,4 +125,19 @@ constructor(){
     )
   }
 }
-export default SearchBar
+
+const mapStateToProps = (reduxState) => {
+  return{
+   googleBooks: reduxState.googleBooks
+  }
+} 
+const mapDispatchToProps = {
+  addGoogleBooks
+ }
+ 
+ 
+ export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SearchBar))
+
+
+// Search bar in nav doesnt worker
+// back and forward buttons dont work

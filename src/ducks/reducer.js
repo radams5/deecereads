@@ -6,13 +6,15 @@ const initialState = {
   bookId: 0,
   groupId: 0,
   isbn: 0,
-  summary: ''
+  summary: '',
+  googleBooks: []
 }
 
 const UPDATE_USER = 'UPDATE_USER'
 const UPDATE_BOOK = 'UPDATE_BOOK'
 const UPDATE_GROUP = 'UPDATE_GROUP'
 const ADD_BOOK = 'ADD_BOOK'
+const ADD_GOOGLE_BOOKS = 'ADD_GOOGLE_BOOKS'
 
 
 export function updateUser(user){
@@ -40,6 +42,12 @@ export function addBook(book){
     payload: book
   }
 }
+export function addGoogleBooks(arr){
+  return{
+    type: ADD_GOOGLE_BOOKS,
+    payload: arr
+  }
+}
 
 export default function reducer( state = initialState, action){
   const {type, payload} = action
@@ -59,6 +67,9 @@ export default function reducer( state = initialState, action){
       const summary = description    
       const isbn = primary_isbn10
       return{...state, title, img, isbn, summary}}
+    case ADD_GOOGLE_BOOKS: {
+      const googleBooks = payload
+      return{...state, googleBooks}}
     default:
       return state
   }

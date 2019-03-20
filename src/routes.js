@@ -1,7 +1,6 @@
 import React from 'react'
 import {Route, Switch} from 'react-router-dom'
 import BookPage from './components/BookPage/BookPage'
-import Groups from './components/Groups/Groups'
 import Landing from './components/Landing/Landing'
 // import UploadPage from './components/UploadPage/UploadPage'
 import UserHomePage from './components/UserHomePage/UserHomePage'
@@ -18,8 +17,6 @@ export default (
     <Route  path='/Home' component={Landing}/>
     <Route  exact path='/' component={Login}/>
     <Route  path='/BookPage' component={BookPage}/>
-    <Route  path='/Groups' component={Groups}/>
-    {/* <Route  path='/UploadPage' component={UploadPage}/> */}
     <Route  path='/UserHomePage' component={UserHomePage}/>
     <Route  path='/BookSearch' component={BookSearch}/>
     <Route  path='/CurrentlyReading' component={UsersCurrentlyReadingPage}/>
