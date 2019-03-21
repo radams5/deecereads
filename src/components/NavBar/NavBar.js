@@ -1,11 +1,9 @@
 import React, {Component} from 'react'
-import {Link} from 'react-router-dom'
+import {Link,withRouter} from 'react-router-dom'
 import SearchBar from '../SearchBar/SearchBar'
+import {connect} from 'react-redux'
 
-
-
-
-export default class NavBar extends Component{
+ class NavBar extends Component{
   constructor(){
     super()
     this.state = {
@@ -26,24 +24,40 @@ export default class NavBar extends Component{
 
 
 render(){
+  console.log(22222, this.session)
   return(
-    <div>
-      <Link to='/Home'>
-        <button>Home</button>
-      </Link>
-      <Link to='/UserHomePage'>
-        <button>Profile</button>
-      </Link>
+    <div className="NavBarMainDiv">
+      <div className='NavBarLeftDiv'>
+        <Link to='/Home'>
+          <button>Home</button>
+        </Link>
+        <Link to='/UserHomePage'>
+          <button>Profile</button>
+        </Link>
+      
+        <Link to='/BookSearch'>
+          <button>Find Books</button>
+        </Link>
+        <Link to='/'>
+          <button>Sign In</button>
+        </Link>
     
-      <Link to='/BookSearch'>
-        <button>Find Books</button>
-      </Link>
-      <Link to='/'>
-        <button>Sign In</button>
-      </Link>
-   
-     <SearchBar setSearchState={this.setSearchState} history={this.props.history}/> 
+      <SearchBar setSearchState={this.setSearchState} location={this.props.location} history={this.props.history} />
+      </div>
+      <div className="NavBarRightDiv">
+        <p>welcome {this.props.username}</p>
+      </div>
+       
+     
    </div>
   )
 }
 }
+
+const mapStateToProps = (reduxState) => {
+  return{
+   username: reduxState.username
+  }
+}
+
+export default withRouter(connect(mapStateToProps)(NavBar))

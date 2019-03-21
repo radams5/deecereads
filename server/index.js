@@ -1,3 +1,4 @@
+const path = require('path')
 require('dotenv').config()
 const express = require('express'),
   massive = require('massive'),
@@ -14,6 +15,8 @@ const app = express(),
 const pgPool = new pg.Pool({
   connectionString: CONNECTION_STRING
 })
+
+app.use( express.static( `${__dirname}/../build` ) );
 
 
 app.use(express.json())
@@ -64,3 +67,6 @@ app.delete('/deleteBookWishList/:bookId', ctrl.deleteBookWishList)
 // q=inauthor:jk+inauthor:rowling
 // q=intitle:harry+intitle:potter
 
+app.get('*', (req, res)=>{
+  res.sendFile(path.join(__dirname, '../build/index.html'));
+});

@@ -98,7 +98,7 @@ import {Link} from 'react-router-dom'
   // }
   deleteBookCurrent = async (book) => {
     try{
-      let res = await axios.delete(`/deleteBookCurrent/${book.id}`)
+      await axios.delete(`/deleteBookCurrent/${book.id}`)
       this.getUserInfo()
     }catch(err){
       console.log(err)
@@ -108,7 +108,7 @@ import {Link} from 'react-router-dom'
   deleteBookLibrary = async (book) => {
 
     try{
-      let res = await axios.delete(`/deleteBookLibrary/${book.id}`)
+       await axios.delete(`/deleteBookLibrary/${book.id}`)
       this.getUserInfo()
     }catch(err)
     {
@@ -118,7 +118,7 @@ import {Link} from 'react-router-dom'
   }
   deleteBookWishList = async (book) => {
     try{
-      let res = await axios.delete(`/deleteBookWishList/${book.id}`)
+      await axios.delete(`/deleteBookWishList/${book.id}`)
       this.getUserInfo()
   
     }catch(err)

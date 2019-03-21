@@ -82,7 +82,7 @@ class BookPage extends Component{
       try{
         const {id, bookId} = this.props
       let body = { id: id, bookId: bookId}
-      let res = await axios.put('/addToCurrentlyReading', body)
+      await axios.put('/addToCurrentlyReading', body)
       alert('added to Currently Reading')
     }catch(err){
       }
@@ -102,7 +102,7 @@ class BookPage extends Component{
       try{
       const {id, bookId} = this.props
       let body = { id: id, bookId: bookId}
-      let res = await axios.put('/addToWishList', body)
+      await axios.put('/addToWishList', body)
       alert('added to Wish List')
     }catch(err){
       }
@@ -141,7 +141,7 @@ class BookPage extends Component{
           <h2>My Rating</h2>
           <p>{rating}/10</p>
           <button onClick={()=>this.updateRating()}>Change Ratings</button>
-          <input placeholder='change up that rating' value={this.state.rating} onChange={e => this.handleUpdateState(e.target.value, 'rating')}/>
+          <input type="number" placeholder='change up that rating' value={this.state.rating} onChange={e => this.handleUpdateState(e.target.value, 'rating')}/>
     
         </div>
         </div>

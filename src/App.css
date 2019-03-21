@@ -31,18 +31,28 @@
     transform: rotate(360deg);
   }
 }
+
+/* -----------NAV BAR----------- */
 .NavBar{
   height: 75px;
   background-color: tan;
 }
 
+.NavBarMainDiv{
+  display: flex;
+  justify-content: space-around;
+}
+.NavBarLeftDiv{
+
+}
+.NavBarRightDiv{
+}
+
+/*----------------NYT Page-----------*/
 .LandingMainDiv{ 
  display: flex;
  flex-direction: column
 }
-
-
-/*----------------NYT Page-----------*/
 
 .NYTBestsellers{
   background-image: url(./images/bookshelf.png);

@@ -25,7 +25,7 @@ class UsersLibrary extends Component{
   deleteBookLibrary = async (book) => {
 
     try{
-      let res = await axios.delete(`/deleteBookLibrary/${book.id}`)
+      await axios.delete(`/deleteBookLibrary/${book.id}`)
       this.getUserInfo()
     }catch(err)
     {

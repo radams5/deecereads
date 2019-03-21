@@ -24,7 +24,7 @@ class UsersWishList extends Component{
   }
   deleteBookWishList = async (book) => {
     try{
-      let res = await axios.delete(`/deleteBookWishList/${book.id}`)
+      await axios.delete(`/deleteBookWishList/${book.id}`)
       this.getUserInfo()
   
     }catch(err)

@@ -1,9 +1,7 @@
 import React, {Component} from 'react'
 import axios from 'axios';
-import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {addGoogleBooks} from '../../ducks/reducer'
-import {withRouter} from 'react-router'
 
 class SearchBar extends Component{
 constructor(){
@@ -52,7 +50,7 @@ constructor(){
  }
   handleGetGoogle = async (query) => {
     console.log(111111, this.props)
-    if(this.props.history.location.pathname !== '/BookSearch'){
+    if(this.props.location.pathname !== '/BookSearch'){
       this.props.history.push("/BookSearch")
     }
     try{
@@ -62,7 +60,7 @@ constructor(){
         ${arr.map( word => {
           return ('intitle:' + word)
         })}
-        &key=AIzaSyDou-rWY8KTpFX3CcbtHcAqJ6jnnzN0vd8`)
+        &key=${process.env.REACT_APP_GOOGLEKEY}`)
         // this.props.setSearchState(res.data.items, 'searchResults')
         this.props.addGoogleBooks(res.data.items)
       }
@@ -71,13 +69,13 @@ constructor(){
         ${arr.map( word => {
           return ('inauthor:' + word)
         }).join("+")}
-        &key=AIzaSyDou-rWY8KTpFX3CcbtHcAqJ6jnnzN0vd8`)
+        &key=${process.env.REACT_APP_GOOGLEKEY}`)
         console.log(12341234, res)
         // this.props.setSearchState(res.data.items, 'searchResults')
         this.props.addGoogleBooks(res.data.items)
     }
       if (this.state.ISBNCheck===true){
-        let res = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=isbn:${query}&key=AIzaSyDou-rWY8KTpFX3CcbtHcAqJ6jnnzN0vd8`)
+        let res = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=isbn:${query}&key=${process.env.REACT_APP_GOOGLEKEY}`)
         // this.props.setSearchState(res.data.items, 'searchResults')
         this.props.addGoogleBooks(res.data.items)
     }}catch(err){      
@@ -89,7 +87,8 @@ constructor(){
   }
 
   render(){
- 
+ console.log(this.props)
+ console.log(process.env)
     
     return(
       <div>    
@@ -136,8 +135,10 @@ const mapDispatchToProps = {
  }
  
  
- export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SearchBar))
+ export default connect(mapStateToProps, mapDispatchToProps)(SearchBar)
 
 
-// Search bar in nav doesnt worker
-// back and forward buttons dont work
+ /////////Refresh Functionality
+
+ //////////Is withRouter just to give child components access to history.push?
+ ///////// what happens to state when i hit refresh

@@ -25,7 +25,7 @@ class UsersCurrentlyReadingPage extends Component{
   
   deleteBookCurrent = async (book) => {
     try{
-      let res = await axios.delete(`/deleteBookCurrent/${book.id}`)
+      await axios.delete(`/deleteBookCurrent/${book.id}`)
       this.getUserInfo()
     }catch(err){
       console.log(err)
