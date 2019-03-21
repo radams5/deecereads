@@ -9,7 +9,6 @@ const express = require('express'),
   
 const app = express(),
     {SERVER_PORT, CONNECTION_STRING, SESSION_SECRET} = process.env
-console.log(process.env)
     
 
 

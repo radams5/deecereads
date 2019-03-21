@@ -48,20 +48,29 @@ constructor(){
           })}
       
  }
+ handleClearChecks(){
+  var inputs = document.getElementsByTagName("input");
+  for(var i = 0; i < inputs.length; i++) {
+      if(inputs[i].type === "checkbox") { 
+        if(inputs[i].checked===true) {
+          inputs[i].checked=false            
+        }
+      }
+ }
+}
   handleGetGoogle = async (query) => {
-    console.log(111111, this.props)
     if(this.props.location.pathname !== '/BookSearch'){
       this.props.history.push("/BookSearch")
     }
     try{
-      let arr = query.split(" ")
+      if(this.state.titleCheck===false && this.state.authorCheck===false && this.state.ISBNCheck===false){alert('please select a search field')} else{
+        let arr = query.split(" ")
       if (this.state.titleCheck===true){
         let res = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=
         ${arr.map( word => {
           return ('intitle:' + word)
         })}
         &key=${process.env.REACT_APP_GOOGLEKEY}`)
-        // this.props.setSearchState(res.data.items, 'searchResults')
         this.props.addGoogleBooks(res.data.items)
       }
       if (this.state.authorCheck===true){
@@ -70,25 +79,29 @@ constructor(){
           return ('inauthor:' + word)
         }).join("+")}
         &key=${process.env.REACT_APP_GOOGLEKEY}`)
-        console.log(12341234, res)
         // this.props.setSearchState(res.data.items, 'searchResults')
         this.props.addGoogleBooks(res.data.items)
-    }
+      }
       if (this.state.ISBNCheck===true){
         let res = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=isbn:${query}&key=${process.env.REACT_APP_GOOGLEKEY}`)
         // this.props.setSearchState(res.data.items, 'searchResults')
         this.props.addGoogleBooks(res.data.items)
-    }}catch(err){      
+      }
+    }
+    }catch(err){      
       console.log(err)
     }
     this.setState({
-        searchBar: ''
+        searchBar: '',
+        titleCheck: false,
+        authorCheck: false,
+        ISBNCheck: false,
       })
+    this.handleClearChecks()
+    console.log(11111, this.state)
   }
 
   render(){
- console.log(this.props)
- console.log(process.env)
     
     return(
       <div>    
@@ -138,7 +151,6 @@ const mapDispatchToProps = {
  export default connect(mapStateToProps, mapDispatchToProps)(SearchBar)
 
 
- /////////Refresh Functionality
-
- //////////Is withRouter just to give child components access to history.push?
- ///////// what happens to state when i hit refresh
+// make search bar clear check box when its clicked
+// login register alerts
+// review blank input alert

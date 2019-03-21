@@ -18,13 +18,11 @@ import {connect} from 'react-redux'
     this.setState({
       [partOfState]: info
     })
-    console.log(11111111, this.state)
   }
 
 
 
 render(){
-  console.log(22222, this.session)
   return(
     <div className="NavBarMainDiv">
       <div className='NavBarLeftDiv'>

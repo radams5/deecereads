@@ -26,7 +26,7 @@ constructor(){
       this.props.updateUser(res.data)
       this.props.history.push('/Home')
     } catch(err) {
-
+      alert('registration error, try a different username or password')
     }
   }
 
@@ -40,7 +40,7 @@ constructor(){
         this.props.updateUser(res.data)
         this.props.history.push('/Home')
       } catch(err) {
-        
+        alert('incorrect username or password')
       } 
   }
   handleChange(prop, val){
@@ -50,7 +50,7 @@ constructor(){
   }
 
   render(){
-    // console.log(this.props)
+
   return(
     <div className="LoginMainDiv">
       <div className="LoginMainDivOpacitySheet">
@@ -58,7 +58,7 @@ constructor(){
           <h1>Please Login</h1>
             <div>
               <input placeholder='username' onChange={e =>    this.handleChange('username', e.target.value)}/>
-              <input placeholder='password' onChange={e => this.handleChange('password', e.target.value)}/>
+              <input type="password" required placeholder='password' onChange={e => this.handleChange('password', e.target.value)}/>
             </div>
           <button onClick={this.login}>Login</button>
           <button onClick={this.register}>Register</button>

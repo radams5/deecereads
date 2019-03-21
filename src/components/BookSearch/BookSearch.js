@@ -16,15 +16,12 @@ class BookSearch extends Component{
 
   setSearchResults(searchResults){
     this.setState({searchResults})
-    console.log(11111111, this.state)
   }
 
 
 
 render(){
-  console.log(34343434, this.props)
     if (this.props.googleBooks){let results = this.props.googleBooks.map(( book ) => {
-      console.log(book.volumeInfo)
       let {title, authors, description} = book.volumeInfo
       let {thumbnail} = book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks : ''
       let isbn = book.volumeInfo.industryIdentifiers ? book.volumeInfo.industryIdentifiers[0].identifier : null
@@ -34,7 +31,6 @@ render(){
         primary_isbn10: isbn, 
         description: description
       }
-        console.log(44444444, thumbnail)
         let img = thumbnail
         
 

@@ -40,11 +40,10 @@ class BookPage extends Component{
     const {id, bookId} = this.props
     let body = { id: id, bookId: bookId }
     let res = await axios.post('/bookReview', body)
-    console.log(res)
+    
     this.setState({
       bookReview: res.data
     })
-    console.log(this.state)
   }
 //////////////////Updates
 
@@ -59,11 +58,9 @@ class BookPage extends Component{
     })
     }
   updateRating = async () => {
-    console.log('hit')
     const {id, bookId} = this.props
     const {rating} = this.state
     let body = { id: id, bookId: bookId, rating}
-    console.log(body)
     let res = await axios.put('/UpdateBookRating', body)
     this.setState({
       bookReview: res.data,
@@ -91,9 +88,7 @@ class BookPage extends Component{
       try {
         const {id, bookId} = this.props
         let body = { id: id, bookId: bookId}
-        console.log(body)
-        let res = await axios.put('/addToLibrary', body)
-        console.log(res)
+        await axios.put('/addToLibrary', body)
         alert('added to library')
       }catch(err){
       }
@@ -113,6 +108,7 @@ class BookPage extends Component{
   render(){
     let review = this.state.bookReview.review ? this.state.bookReview.review : ''
     let rating = this.state.bookReview.rating ? this.state.bookReview.rating : ''
+
     return(
       <div>
       <div className="BookPageMainDiv">
@@ -141,7 +137,7 @@ class BookPage extends Component{
           <h2>My Rating</h2>
           <p>{rating}/10</p>
           <button onClick={()=>this.updateRating()}>Change Ratings</button>
-          <input type="number" placeholder='change up that rating' value={this.state.rating} onChange={e => this.handleUpdateState(e.target.value, 'rating')}/>
+          <input type="integer" placeholder='change up that rating' value={this.state.rating} onChange={e => this.handleUpdateState(e.target.value, 'rating')}/>
     
         </div>
         </div>

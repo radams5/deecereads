@@ -101,11 +101,9 @@ CTRL={
   },
   bookReview: async (req, res) => {
     const {id, bookId} = req.body
-    console.log(bookId)
     const db = req.app.get('db')
     let bookReview = await db.BookPageRequests.book_review({id, bookId})
     bookReview = bookReview[0]
-    console.log(12341234123412341324, bookReview)
     if (bookReview){
       res.status(200).send(bookReview)
     }
@@ -158,8 +156,7 @@ CTRL={
       const {bookId} = req.params
       const userId = req.session.user.id
       const db = req.app.get('db')
-      let newCurrentlyReading = await db.UserPageRequests.delete_currently_reading(userId, bookId)
-      console.log(newCurrentlyReading)     
+      let newCurrentlyReading = await db.UserPageRequests.delete_currently_reading(userId, bookId)    
       res.sendStatus(200)
       } catch(err){
       console.log(err)
@@ -171,7 +168,7 @@ CTRL={
       const userId = req.session.user.id
       const db = req.app.get('db')
       let newLibrary = await db.UserPageRequests.delete_library(userId, bookId)
-      console.log(newLibrary)
+      (newLibrary)
         res.status(200).send(newLibrary)
       } catch(err){
       console.log(err)
@@ -194,20 +191,16 @@ CTRL={
   updateBookReview: async (req, res) => {
     const {id, bookId, review} = req.body
     const db = req.app.get('db')
-    console.log(111111, req.body)
     try{
       let exists = await db.BookPageRequests.check_review_exists({id, bookId})
       exists = +exists[0].count
-      console.log(3333333333, exists)
-      if (exists > 0){
-        console.log('hit')      
+      if (exists > 0){     
         let bookReview = await db.BookPageRequests.update_book_review({review, id, bookId})
         bookReview = bookReview[0]
         res.status(200).send(bookReview)} 
         else {  
-          console.log('hit number 2')    
+    
           let bookReview = await db.BookPageRequests.add_book_review({review, id, bookId})
-          console.log(4444444444, bookReview)
         bookReview = bookReview[0]
         res.status(200).send(bookReview)
       }} catch(err){
@@ -220,14 +213,12 @@ CTRL={
     try{
       let exists = await db.BookPageRequests.check_review_exists({id, bookId})
       exists = +exists[0].count
-      console.log(3333333333, exists)
       if (exists > 0){      
         let bookRating = await db.BookPageRequests.update_book_rating({rating, id, bookId})
         bookRating = bookRating[0]
-        console.log(44444444444, bookRating)
+        (44444444444, bookRating)
         res.status(200).send(bookRating)} 
-      else if(!exists) {  
-      console.log('hit')    
+      else if(!exists) {
         let bookRating = await db.BookPageRequests.add_book_rating({rating, id, bookId})
         bookRating = bookRating[0]
         res.status(200).send(bookRating)
@@ -245,7 +236,7 @@ CTRL={
     let bookExists = await db.BookPageRequests.check_book_exists({isbn})
     if (!bookExists[0]){
       let addedBookToDb = await db.BookPageRequests.added_book_to_db({title, img, isbn, summary})
-      console.log('sending new book')
+      ('sending new book')
       res.status(200).send(addedBookToDb)
     } else {
       console.log('sending old book')
