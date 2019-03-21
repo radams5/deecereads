@@ -9,6 +9,7 @@ const express = require('express'),
   
 const app = express(),
     {SERVER_PORT, CONNECTION_STRING, SESSION_SECRET} = process.env
+console.log(process.env)
     
 
 
@@ -38,6 +39,8 @@ massive(CONNECTION_STRING).then(db => {
   console.log('db connected')
   const PORT=SERVER_PORT
   app.listen(PORT, () => {console.log('sharpening your quill on 3003')})
+}).catch((err)=>{
+  console.log('massive cant connect', err)
 })
 
 
