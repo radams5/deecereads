@@ -59,15 +59,6 @@ import {Link} from 'react-router-dom'
     })
   }
 
-  // myGroups = async () => {
-  //   let id = {
-  //     id: this.props.id
-  //   } 
-  //   let res = await axios.post('/myGroups', id)
-  //   this.setState({
-  //     myGroups: res.data
-  //   })
-  // }
 
   library = async () => {     
     let res = await axios.get('/library')
@@ -85,17 +76,7 @@ import {Link} from 'react-router-dom'
 ///////Deletes//////////////
 
 
-  // deleteGroup = async (book) => {
-  //   try{
-  //     let res = await axios.delete(`/deleteGroup/${book.id}`)
-  //     this.setState = ({
-  //       group: res.data
-  //     })
-  //   }catch(err)
-  //   {
-  //    console.log(err)
-  //   }
-  // }
+ 
   deleteBookCurrent = async (book) => {
     try{
       await axios.delete(`/deleteBookCurrent/${book.id}`)
@@ -184,7 +165,8 @@ import {Link} from 'react-router-dom'
     //   )
     // })
     return(
-      <div className='UserPageCombinedContainers'>
+      <div>
+        <div className='UserPageCombinedContainers'>
         <div className='UserPageGroupContainter'>
           <Link to='/CurrentlyReading'><h2>Currently Reading</h2></Link>
           <div className='SingleBookContainer'>{currentlyReading}</div>
@@ -201,6 +183,7 @@ import {Link} from 'react-router-dom'
           <Link to='WishList'><h2>Wish List</h2></Link>
           <div className='SingleBookContainer'>{wishList}</div>
         </div>       
+      </div>
      </div>
     )
   }

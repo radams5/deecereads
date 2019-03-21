@@ -51,7 +51,9 @@
 /*----------------NYT Page-----------*/
 .LandingMainDiv{ 
  display: flex;
- flex-direction: column
+ flex-direction: column;
+ /* background-image: url(./images/bookshelf.png);
+ background-size: 100vw 250px; */
 }
 
 .NYTBestsellers{
@@ -73,7 +75,7 @@
   justify-content: space-around;
 }
 .LandingPageAdBooks{
-  background-image: url(./images/bookshelf.png);
+  /* background-image: url(./images/bookshelf.png); */
   background-size: cover;
   display: flex;
   justify-content: space-around;
@@ -102,9 +104,11 @@
 /*  --------------User Page--------------*/
 
 
-.UserPageCombinedContainters{
+.UserPageCombinedContainers{
   display: flex;
   flex-direction: column;
+  /* background-image: url(./images/bookshelf.png);
+  background-size: 100vw 265px; */
 }
 .UserPageGroupContainter{
   background-image: url(./images/bookshelf.png);
@@ -134,7 +138,7 @@
 .LoginMainDiv{
   background-image: url(./images/bookshelf_background.jpg);
  background-size: cover;
- height: 100vh;
+ height: calc(100vh - 75px);
  display: flex;
  justify-content: center;
  align-content: center;
@@ -177,11 +181,14 @@
 .UserPagebookshelfContainer{
   display: flex;
   flex-direction: column;
-  height: 30vh;
+  height: calc(100vh - 150px);
+  background-image: url(./images/bookshelf.png);  
+  background-size: 100vw 30vh;
+  background-repeat: repeat-y
 }
 .UsersPersonalLibraryContainer{
   background-image: url(./images/bookshelf.png);  
-  background-size: 100vw 13em;
+  background-size: 100vw 12.5em;
   /* min-height: 720px; This line is keeping the page fill, but it also messes up the spacing vertically */
   display: flex;
   flex-direction: row;
@@ -199,7 +206,7 @@ margin: 5px;
 .UserPersonalPagesTitles{
   background-image: url(./images/bookpage_background.png);
   background-size: cover;
-  font-size: 40px
+  font-size: 40px;
 
 }
 
@@ -213,7 +220,17 @@ margin: 5px;
 
 .SearchResultBookshelf{
   background-image: url(./images/bookshelf.png);
+  background-size: 100vw 335.62px;
   background-size: cover;
-  padding: 9px
+
+}
+.TopOfBookshelf > h1{
+  margin: 0;
+}
+.ReturnedSearchInfoDiv{
+  background-image: url(./images/bookshelf.png);
+  background-size: cover;
+  padding: 5px;
+  height: 335.62;
 }
 

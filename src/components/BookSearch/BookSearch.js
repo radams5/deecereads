@@ -34,10 +34,10 @@ render(){
         let img = thumbnail
         
 
-        return(
-          <div className="SearchResultBookshelf">
-            <div>
-              <h3>{title}</h3>
+      return(
+          <div>
+            <div className='ReturnedSearchInfoDiv'>
+              <h4>{title}</h4>
               <h5>{authors}</h5>
               <Link to='/bookPage'><button className='BookButton' onClick={() => this.props.addBook(bookToAdd)}>{img ? <img alt={title} src={img}/> : null}</button></Link>
             </div>
@@ -46,12 +46,14 @@ render(){
       })
       
       return(
-        <div className='BookSearchPage'>
+        <div className='BookSearchPage'>        
           <div className='TopOfBookshelf'>
             <h1> BookSearch </h1>
             <SearchBar setSearchState={this.setSearchResults} location={this.props.location} history={this.props.history}/>
           </div>
+          <div  className="SearchResultBookshelf">
             {results}
+          </div>
           </div>
       )}else{
         return(
