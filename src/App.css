@@ -1,52 +1,12 @@
 .App {
   text-align: center;
+
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
 
 /* -----------NAV BAR----------- */
-.NavBar{
-  height: 75px;
-  background-color: tan;
-}
-
-.NavBarMainDiv{
-  display: flex;
-  justify-content: space-around;
-}
-.NavBarLeftDiv{
-
-}
-.NavBarRightDiv{
-}
 
 /*----------------NYT Page-----------*/
 .LandingMainDiv{ 
@@ -64,6 +24,7 @@
   overflow: auto;
   white-space: nowrap;
   height: 40vh;
+  padding: 25px 15px 15px 15px;
 }
 .NYTBestsellerContainer{
   display: flex;
@@ -98,6 +59,7 @@
   height: 10em;
   width: 8em; 
   background: white;
+  margin: 1em;
   
 }
 
@@ -110,12 +72,17 @@
   /* background-image: url(./images/bookshelf.png);
   background-size: 100vw 265px; */
 }
+
+.UserPageCombinedContainers button{
+  border-radius: 4px;
+}
 .UserPageGroupContainter{
   background-image: url(./images/bookshelf.png);
   min-height: 40vh;
   background-size: cover;
   display: flex;
   flex-direction: column;
+  padding: 20px;
  
 }
 .SingleBookContainer{
@@ -126,12 +93,13 @@
 .singleBook{
   display: flex;
   flex-direction: column;
-  margin: 20px;
-  max-height: 10em;
+  margin: 10px 20px;
+  max-height: 14em;
 }
 .BookImage{
   height: 10em;
   width: 8em;
+  margin: 3px;
 }
 /*------------------Login------------------------ */
 
@@ -155,8 +123,8 @@
   align-items: center
 } */
 .LoginBox{
-  border: 2px solid black;
-  background: tan;
+  box-shadow: 8px 5px 5px;
+  background: rgb(244, 234, 213);
   height: 20vh;
   width: 50vw;
   
@@ -182,17 +150,18 @@
   display: flex;
   flex-direction: column;
   height: calc(100vh - 150px);
-  background-image: url(./images/bookshelf.png);  
+  /* background-image: url(./images/bookshelf.png);   */
   background-size: 100vw 30vh;
-  background-repeat: repeat-y
+  background-repeat: repeat-y;
 }
 .UsersPersonalLibraryContainer{
   background-image: url(./images/bookshelf.png);  
-  background-size: 100vw 12.5em;
-  /* min-height: 720px; This line is keeping the page fill, but it also messes up the spacing vertically */
+  background-size: 100vw 14em;
+  min-height: 50em; 
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  align-content: flex-start
   
 }
 .UserPersonalNav{
@@ -224,13 +193,11 @@ margin: 5px;
   background-size: cover;
 
 }
-.TopOfBookshelf > h1{
-  margin: 0;
-}
+
 .ReturnedSearchInfoDiv{
   background-image: url(./images/bookshelf.png);
   background-size: cover;
-  padding: 5px;
+  padding: 15px;
   height: 335.62;
 }
 

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import './App.css';
 import routes from './routes'
 import NavBar from './components/NavBar/NavBar'
+import "antd/dist/antd.css";
+import './App.css';
 
 class App extends Component {
   render() {

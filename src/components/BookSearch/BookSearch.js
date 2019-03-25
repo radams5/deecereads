@@ -47,10 +47,7 @@ render(){
       
       return(
         <div className='BookSearchPage'>        
-          <div className='TopOfBookshelf'>
-            <h1> BookSearch </h1>
-            <SearchBar setSearchState={this.setSearchResults} location={this.props.location} history={this.props.history}/>
-          </div>
+        
           <div  className="SearchResultBookshelf">
             {results}
           </div>

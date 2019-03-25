@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {updateBook} from './../../ducks/reducer'
 import axios from 'axios';
+import {Button} from 'antd'
 
 
 
@@ -115,11 +116,11 @@ class BookPage extends Component{
       
         <img src={this.props.img} alt={this.props.title}/>
         <div className="dropdown">
-          <button className="dropdwnbutton">Add to</button>
+          <h3>Add Book to</h3>
           <div className='dropdownContent'>
-            <button onClick={() => this.addToCurrentlyReading()}>Currently Reading</button>
-            <button onClick={() => this.addToLibrary()}>Library</button>
-            <button onClick={() => this.addToWishList()}>Wish List</button>
+            <Button onClick={() => this.addToCurrentlyReading()}>Currently Reading</Button>
+            <Button onClick={() => this.addToLibrary()}>Library</Button>
+            <Button onClick={() => this.addToWishList()}>Wish List</Button>
           </div>
         </div>
         <h1>{this.props.title}</h1>
@@ -129,14 +130,14 @@ class BookPage extends Component{
         <div>
           <h2>My Review</h2>
           <p>{review}</p>
-          <button onClick={()=>this.updateReview()}>Update Review</button>
+          <Button onClick={()=>this.updateReview()}>Update Review</Button>
           <input placeholder='Update Review' value={this.state.review} onChange={e => this.handleUpdateState(e.target.value, 'review')}/>
       
         </div>
         <div>
           <h2>My Rating</h2>
           <p>{rating}/10</p>
-          <button onClick={()=>this.updateRating()}>Change Ratings</button>
+          <Button onClick={()=>this.updateRating()}>Change Ratings</Button>
           <input type="integer" placeholder='change up that rating' value={this.state.rating} onChange={e => this.handleUpdateState(e.target.value, 'rating')}/>
     
         </div>

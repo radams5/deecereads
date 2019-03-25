@@ -48,7 +48,7 @@ render(){
             </button>          
           </Link>
         
-        <button onClick={() => this.deleteBookLibrary(book)}>Remove book</button>
+        <button  style={{borderRadius:"4px"}} onClick={() => this.deleteBookLibrary(book)}>Remove book</button>
       </div>
     )
   })

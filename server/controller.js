@@ -234,6 +234,7 @@ CTRL={
     const {isbn, title, img, summary} = req.body
     const db = req.app.get('db')
     let bookExists = await db.BookPageRequests.check_book_exists({isbn})
+    console.log(bookExists)
     if (!bookExists[0]){
       let addedBookToDb = await db.BookPageRequests.added_book_to_db({title, img, isbn, summary})
       ('sending new book')
