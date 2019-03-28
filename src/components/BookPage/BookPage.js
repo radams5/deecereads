@@ -117,7 +117,7 @@ class BookPage extends Component{
       <div>
       <div className="BookPageMainDiv">
       
-        <img src={this.props.img} alt={this.props.title}/>
+        <img src={this.props.img} alt={this.props.title} className='SearchImage'/>
         <div className="dropdown">
           <h3>Add Book to</h3>
           <div className='dropdownContent'>
@@ -128,7 +128,7 @@ class BookPage extends Component{
         </div>
         <h1>{this.props.title}</h1>
         <h4>Description:</h4>
-        <p>{this.props.summary}</p>
+        <p className='SummaryDiv'>{this.props.summary}</p>
         
         {/* <div>
           <h2>My Review</h2>

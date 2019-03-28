@@ -151,6 +151,14 @@ width: 80%
    padding-top: 2em;
    display: flex;
    flex-direction: column;
+   align-items: center;
+}
+.SearchImage{
+  width: 18em;
+  height: 25em;
+}
+.SummaryDiv{
+  margin: 5px 40px;
 }
 .Footer{
   background-color: rgb(87, 59, 7);
