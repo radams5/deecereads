@@ -125,9 +125,16 @@
 .LoginBox{
   box-shadow: 8px 5px 5px;
   background: rgb(244, 234, 213);
-  height: 20vh;
-  width: 50vw;
+  height: 30vh;
+  width: 70vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+border-radius: 6px;
   
+}
+.InputDiv{
+width: 80%
 }
 ::-webkit-scrollbar {
 
@@ -141,7 +148,13 @@
 .BookPageMainDiv{
   background-image: url(./images/bookpage_background.png);
    background-size: cover;
-   padding-top: 2em
+   padding-top: 2em;
+   display: flex;
+   flex-direction: column;
+}
+.Footer{
+  background-color: rgb(87, 59, 7);
+  height: 25px;
 }
 
 /* -----------Users Personal Library ----------*/
@@ -197,7 +210,20 @@ margin: 5px;
 .ReturnedSearchInfoDiv{
   background-image: url(./images/bookshelf.png);
   background-size: cover;
-  padding: 15px;
+  padding: 22px;
   height: 335.62;
+}
+.SearchBarDiv{
+  display: flex;
+  justify-content: center
+}
+@media screen and (min-width: 600px){ 
+  .SearchBarDiv{
+  display: none
+  }
+}
+.SearchBar{
+  width: 100%;
+  
 }
 

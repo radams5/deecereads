@@ -1,8 +1,8 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
+import {addBook, updateBook} from '../../ducks/reducer'
 import SearchBar from '../SearchBar/SearchBar'
-import {addBook} from '../../ducks/reducer'
 
 
 class BookSearch extends Component{
@@ -47,11 +47,17 @@ render(){
       
       return(
         <div className='BookSearchPage'>        
-        
+          <div className='SearchBarDiv'>
+            < SearchBar  setSearchState={this.setSearchState}   
+              location={this.props.location} 
+              history= {this.props.history} 
+              className='SearchBar'
+            />
+          </div>        
           <div  className="SearchResultBookshelf">
             {results}
           </div>
-          </div>
+        </div>
       )}else{
         return(
           <div>
@@ -70,7 +76,8 @@ const mapStateToProps = (reduxState) => {
   }
 } 
 const mapDispatchToProps = {
-  addBook
+  addBook,
+  updateBook
  }
  
  

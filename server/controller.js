@@ -168,7 +168,6 @@ CTRL={
       const userId = req.session.user.id
       const db = req.app.get('db')
       let newLibrary = await db.UserPageRequests.delete_library(userId, bookId)
-      (newLibrary)
         res.status(200).send(newLibrary)
       } catch(err){
       console.log(err)
@@ -237,7 +236,7 @@ CTRL={
     console.log(bookExists)
     if (!bookExists[0]){
       let addedBookToDb = await db.BookPageRequests.added_book_to_db({title, img, isbn, summary})
-      ('sending new book')
+      console.log('sending new book')
       res.status(200).send(addedBookToDb)
     } else {
       console.log('sending old book')

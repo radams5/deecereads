@@ -168,6 +168,10 @@ import {Button} from 'antd'
     return(
       <div>
         <div className='UserPageCombinedContainers'>
+          <div className='UserPageGroupContainter'>
+          <Link to='WishList'><h2>Wish List</h2></Link>
+          <div className='SingleBookContainer'>{wishList}</div>
+        </div> 
         <div className='UserPageGroupContainter'>
           <Link to='/CurrentlyReading'><h2>Currently Reading</h2></Link>
           <div className='SingleBookContainer'>{currentlyReading}</div>
@@ -180,10 +184,7 @@ import {Button} from 'antd'
           <Link to='Library'><h2>Library</h2></Link>
           <div className='SingleBookContainer'>{library}</div>
         </div>
-        <div className='UserPageGroupContainter'>
-          <Link to='WishList'><h2>Wish List</h2></Link>
-          <div className='SingleBookContainer'>{wishList}</div>
-        </div>       
+            
       </div>
      </div>
     )

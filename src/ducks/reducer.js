@@ -36,7 +36,7 @@ export function updateGroup(group){
   }
 }
 export function addBook(book){
-
+  
   return{
     type: ADD_BOOK,
     payload: book
@@ -54,23 +54,23 @@ export default function reducer( state = initialState, action){
   switch(type){
     case UPDATE_USER: {
       const {id, username} = payload
-      return{...state, id, username}}
+    return{...state, id, username}}
     case UPDATE_BOOK: {
       const {title, img, id:bookId, isbn, summary} = payload
-      return{...state, title, img, bookId, isbn, summary}}
+    return{...state, title, img, bookId, isbn, summary}}
     case UPDATE_GROUP:{
       const {id:groupId, img:groupImg, group_name:groupName} = payload
-      return{...state, groupId, groupImg, groupName}}
+    return{...state, groupId, groupImg, groupName}}
     case ADD_BOOK: {
       const {title, book_image, primary_isbn10, description} = payload
       const img = book_image  
       const summary = description    
       const isbn = primary_isbn10
-      return{...state, title, img, isbn, summary}}
+    return{...state, title, img, isbn, summary}}
     case ADD_GOOGLE_BOOKS: {
       const googleBooks = payload
-      return{...state, googleBooks}}
+    return{...state, googleBooks}}
     default:
-      return state
+    return state
+    }
   }
-}

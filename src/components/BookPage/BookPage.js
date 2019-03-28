@@ -19,8 +19,8 @@ class BookPage extends Component{
     }
   }
    async componentDidMount(){
-  await this.addToDatabase()
-  await this.pullBookReview()
+      await this.addToDatabase()
+      await this.pullBookReview()
   }
   // componentDidUpdate(prevProps){
   //   if (this.props !== prevProps){
@@ -35,7 +35,9 @@ class BookPage extends Component{
     const {isbn, title, img, summary} = this.props
     let body = {isbn: isbn, title: title, img:img, summary:summary}
     let res = await axios.post(`/addToDatabase`, body)
+    console.log('updatingboo?', res.data[0])
     this.props.updateBook(res.data[0])
+    console.log('bookpropsupdated?', this.props)
   }
   pullBookReview = async () => {
     const {id, bookId} = this.props
@@ -98,6 +100,7 @@ class BookPage extends Component{
       try{
       const {id, bookId} = this.props
       let body = { id: id, bookId: bookId}
+      console.log('duringaddtowishlist', body, this.props.title)
       await axios.put('/addToWishList', body)
       alert('added to Wish List')
     }catch(err){
@@ -127,7 +130,7 @@ class BookPage extends Component{
         <h4>Description:</h4>
         <p>{this.props.summary}</p>
         
-        <div>
+        {/* <div>
           <h2>My Review</h2>
           <p>{review}</p>
           <Button onClick={()=>this.updateReview()}>Update Review</Button>
@@ -140,9 +143,9 @@ class BookPage extends Component{
           <Button onClick={()=>this.updateRating()}>Change Ratings</Button>
           <input type="integer" placeholder='change up that rating' value={this.state.rating} onChange={e => this.handleUpdateState(e.target.value, 'rating')}/>
     
+        </div> */}
         </div>
-        </div>
-        <div>footer</div>
+        <div className="Footer"></div>
       </div>
     )
   }

@@ -10,11 +10,17 @@
   .SearchBar{
   display: none
   }
+  .WebsiteName{
+    display: none
+  }
 
 }
 @media screen and (min-width: 599px){ 
   .SmallSearchIcon{
   display: none
+  }
+  .WebsiteInitials{
+    display: none
   }
 
 }
@@ -22,8 +28,7 @@
   width: 100vw
 }
 .ant-input-group-wrapper{
-  width: 40vw !important;
-  margin-right: 30px;
+  width: 60vw !important;
 }
 
 
