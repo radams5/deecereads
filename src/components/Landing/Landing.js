@@ -83,7 +83,7 @@ class Landing extends Component{
           </div>
         </div>
             
-          <div>Footer</div>
+          <div className='Footer'></div>
       </div>
     )
   }

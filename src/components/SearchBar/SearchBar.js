@@ -74,9 +74,10 @@ constructor(){
     );
     return(
       <div>    
-        <Input placeholder='Title, Author, ISBN' 
+        <Input placeholder='Title, Author, ISBN'
           addonBefore={selectBefore} 
           addonAfter={<Icon onClick={() => this.handleGetGoogle(this.state.searchBar)} type="search" />}   value={this.state.searchBar} onChange={e => this.handleUpdateState(e.target.value, 'searchBar')}
+          className='AntDSearchBar'
         />
 
       
