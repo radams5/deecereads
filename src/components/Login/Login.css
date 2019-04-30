@@ -1,0 +1,25 @@
+.LoginMainDiv{
+  background-image: url(../../images/bookshelf_background.jpg);
+ background-size: cover;
+ height: calc(100vh - 75px);
+ display: flex;
+ justify-content: center;
+ align-content: center;
+ align-items: center
+}
+
+.LoginBox{
+  box-shadow: 8px 5px 5px;
+  background: rgb(244, 234, 213);
+  height: 30vh;
+  width: 70vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+border-radius: 6px;
+  
+}
+.InputDiv{
+width: 80%
+}

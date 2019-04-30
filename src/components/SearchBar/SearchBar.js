@@ -2,8 +2,7 @@ import React, {Component} from 'react'
 import axios from 'axios';
 import {connect} from 'react-redux'
 import {addGoogleBooks} from '../../ducks/reducer'
-import {Input, Select, Icon} from 'antd'
-const Option = Select.Option;
+import './SearchBar.css'
 
 class SearchBar extends Component{
 constructor(){
@@ -19,10 +18,12 @@ constructor(){
     this.setState({
       [prop]: val
     })
+    console.log(this.state)
   }
 
 
   handleGetGoogle = async (query) => {
+    console.log(this.state)
     if(this.props.location.pathname !== '/BookSearch'){
       this.props.history.push("/BookSearch")
     }
@@ -61,25 +62,25 @@ constructor(){
     this.setState({
         searchBar: '',
       })  
-      this.props.toggleSearch()
+
   }
 
   render(){
-    const selectBefore = (
-      <Select onChange={(value) => this.handleUpdateState(value, 'selectedValue')} defaultValue="title" style={{ width: 90 }}>
-        <Option value="title">Title</Option>
-        <Option value="author">Author</Option>
-        <Option value="isbn">ISBN</Option>
-      </Select>
-    );
+  
     return(
-      <div>    
-        <Input placeholder='Title, Author, ISBN'
-          addonBefore={selectBefore} 
-          addonAfter={<Icon onClick={() => this.handleGetGoogle(this.state.searchBar)} type="search" />}   value={this.state.searchBar} onChange={e => this.handleUpdateState(e.target.value, 'searchBar')}
-          className='AntDSearchBar'
+      <div className='SearchBarDiv'> 
+        <select className='SearchBarSelections' onChange={(e) => this.handleUpdateState(e.target.value, 'selectedValue')}>
+          <option value="title">Title</option>
+          <option value="author">Author</option>
+          <option value="isbn">ISBN</option>
+        </select>   
+        <input 
+          className='SearchBarInput'
+          type="text" 
+          placeholder='Title, Author, ISBN'  value={this.state.searchBar} 
+          onChange={e => this.handleUpdateState(e.target.value, 'searchBar')}
         />
-
+        <button onClick={() => this.handleGetGoogle(this.state.searchBar)} className='SearchBarButton'>Search</button>
       
       </div>
     )

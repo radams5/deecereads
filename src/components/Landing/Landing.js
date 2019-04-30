@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import axios from 'axios'
+import './Landing.css'
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {addBook, updateBook} from '../../ducks/reducer'
@@ -21,7 +22,7 @@ class Landing extends Component{
   }
   
   getBestSellers = async () => {
-    let res = await axios.get('https://api.nytimes.com/svc/books/v3/lists/current/hardcover-nonfiction.json?api-key=MNQo2jhcDKGhq0bapkzfb0063kGyxsuE')
+    let res = await axios.get(`https://api.nytimes.com/svc/books/v3/lists/current/hardcover-nonfiction.json?api-key=MNQo2jhcDKGhq0bapkzfb0063kGyxsuE`)
     this.setState({
       BestSellersNonFiction: res.data.results.books
     }) 
@@ -35,8 +36,6 @@ class Landing extends Component{
     let BestSellersNonFiction = this.state.BestSellersNonFiction.map((book) => { 
       return(        
         <div className='NYTBestsellerBookContainer'>                     
-          {/* <div>{book.title}</div>
-          <div>{book.author}</div> */}
           <Link to={`/bookPage`}> 
             <button onClick={() => this.props.addBook(book)} className="BookButton">
               <img src={book.book_image} alt={book.title} className='NYTBestSellerBookImg'/> 
@@ -48,8 +47,7 @@ class Landing extends Component{
    let BestSellersFiction = this.state.BestSellersFiction.map((book) => { 
     return(        
       <div className='NYTBestsellerBookContainer'>                     
-          {/* <div>{book.title}</div>
-          <div>{book.author}</div> */}
+
           <Link to='/bookPage'>
             <button onClick={ () => this.props.addBook(book)} className="BookButton">
                  <img src={book.book_image} alt={book.title} className='NYTBestSellerBookImg'/> 

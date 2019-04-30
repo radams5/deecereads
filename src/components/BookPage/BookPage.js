@@ -110,8 +110,8 @@ class BookPage extends Component{
 
 
   render(){
-    let review = this.state.bookReview.review ? this.state.bookReview.review : ''
-    let rating = this.state.bookReview.rating ? this.state.bookReview.rating : ''
+    // let review = this.state.bookReview.review ? this.state.bookReview.review : ''
+    // let rating = this.state.bookReview.rating ? this.state.bookReview.rating : ''
 
     return(
       <div>

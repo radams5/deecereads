@@ -60,9 +60,19 @@ render(){
         </div>
       )}else{
         return(
-          <div>
+          <div className='BookSearchPage'>        
+          <div className='SearchBarDiv'>
+            < SearchBar  setSearchState={this.setSearchState}   
+              location={this.props.location} 
+              history= {this.props.history} 
+              className='SearchBar'
+            />
+          </div>        
+         <div>
             <h1>No Results</h1>
           </div>
+        </div>
+          
         )
       }
   }

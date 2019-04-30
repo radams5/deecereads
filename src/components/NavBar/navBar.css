@@ -1,10 +1,18 @@
 .NavBar{
   background-color: rgb(244, 234, 213);
+  width: 100vw;
 
 }
 .navBar  h1 {
   margin: 8px 0px;
   size: 2em;
+}
+.Menu{
+
+}
+.Initials{
+  background-color: white;
+  border-radius: 100%
 }
 @media screen and (max-width: 600px){ 
   .SearchBar{
@@ -24,13 +32,5 @@
   }
 
 }
-.SearchBar2{
-  width: 100vw
-}
-.ant-input-group-wrapper{
-  width: 60vw !important;
-}
-
-
 
 

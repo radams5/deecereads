@@ -43,7 +43,6 @@ massive(CONNECTION_STRING).then(db => {
 })
 
 
-
 //Endpoints
 
 app.get('/user', ctrl.getUser)

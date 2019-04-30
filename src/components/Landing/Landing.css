@@ -1,0 +1,36 @@
+.LandingMainDiv{ 
+ display: flex;
+ flex-direction: column;
+}
+.NYTBestsellers{
+  background-image: url(../../images/TallShelf.png);
+  background-size: cover;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: auto;
+  white-space: nowrap;
+  height: 35vh;
+  padding: 15px 15px 15px 15px;
+}
+.NYTBestsellerContainer{
+  display: flex;
+  overflow: auto;
+  white-space: nowrap;
+}
+.FeaturedBooksContainer{
+  display: flex;
+  justify-content: space-around;
+}
+.NYTBestSellerBookImg{
+  height: 10em;
+  width: 8em;
+}
+.FeaturedBook{
+  height: 10em;
+  width: 8em; 
+  background: tan;  
+  
+}
+

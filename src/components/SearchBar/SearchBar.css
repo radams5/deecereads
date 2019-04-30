@@ -1,0 +1,49 @@
+.BookSearchPage{
+  background-image: url(../../images/bookpage_background.png);
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+}
+.SearchResultBookshelf{
+  width: 100vw;
+  background-image: url(../../images/TallShelf.png);
+  background-size: 100vw 335.62px;
+  background-size: cover;
+}
+.SearchBarDiv select{
+  padding-top: 2px;
+  padding-bottom: 2.5px;
+  width: 15vw;
+}
+.SearchBarInput{
+  padding: 2px;
+  width: 60vw
+}
+.SearchBarButton{
+  padding: 2px;
+  width: 15vw
+}
+.ReturnedSearchInfoDiv{
+  background-image: url(../../images/TallShelf.png);
+  background-size: cover;
+  padding: 22px;
+}
+.SearchBarDiv{
+  width: 100vw;
+  height: 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.AntDSearchBar{
+  width: 90vw !important  ;
+}
+@media screen and (min-width: 600px){ 
+  .SearchBarDiv{
+  display: none
+  }
+}
+.SearchBar{
+  width: 100%;
+  
+}
