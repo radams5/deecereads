@@ -38,12 +38,15 @@
 .AntDSearchBar{
   width: 90vw !important  ;
 }
-@media screen and (min-width: 600px){ 
-  .SearchBarDiv{
-  display: none
-  }
-}
+
 .SearchBar{
   width: 100%;
   
 }
+
+@media screen and (min-width: 600px){ 
+  .ReturnedSearchInfoDiv{
+    padding: 50px 15px 3px 15px
+  }
+  
+  }

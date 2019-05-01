@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {updateBook} from './../../ducks/reducer'
 import axios from 'axios';
 import {Button} from 'antd'
+import './BookPage.css'
 
 
 
@@ -35,9 +36,7 @@ class BookPage extends Component{
     const {isbn, title, img, summary} = this.props
     let body = {isbn: isbn, title: title, img:img, summary:summary}
     let res = await axios.post(`/addToDatabase`, body)
-    console.log('updatingboo?', res.data[0])
     this.props.updateBook(res.data[0])
-    console.log('bookpropsupdated?', this.props)
   }
   pullBookReview = async () => {
     const {id, bookId} = this.props
@@ -79,39 +78,38 @@ class BookPage extends Component{
 ////////////////////ADDS
 
     addToCurrentlyReading = async () => {
-      try{
+      if(this.props.id){try{
         const {id, bookId} = this.props
       let body = { id: id, bookId: bookId}
       await axios.put('/addToCurrentlyReading', body)
       alert('added to Currently Reading')
     }catch(err){
-      }
+      }}else{alert('Please Login or Register')}
     }
     addToLibrary = async () => {
-      try {
+     if(this.props.id){ try {
         const {id, bookId} = this.props
         let body = { id: id, bookId: bookId}
         await axios.put('/addToLibrary', body)
         alert('added to library')
       }catch(err){
-      }
+      }}else{alert('Please Login or Register')}
     }
     addToWishList = async () => {
-      try{
+     if(this.props.id){ try{
       const {id, bookId} = this.props
       let body = { id: id, bookId: bookId}
-      console.log('duringaddtowishlist', body, this.props.title)
       await axios.put('/addToWishList', body)
       alert('added to Wish List')
     }catch(err){
       }
-    }   
+    }else{alert('Please Login or Register')}
+  }   
 
 
 
   render(){
-    // let review = this.state.bookReview.review ? this.state.bookReview.review : ''
-    // let rating = this.state.bookReview.rating ? this.state.bookReview.rating : ''
+  console.log(this)
 
     return(
       <div>
@@ -128,7 +126,7 @@ class BookPage extends Component{
         </div>
         <h1>{this.props.title}</h1>
         <h4>Description:</h4>
-        <p className='SummaryDiv'>{this.props.summary}</p>
+        <p className='SummaryDiv'>{this.props.summary ? this.props.summary : 'No summary from Google Books API'}</p>
         
         {/* <div>
           <h2>My Review</h2>

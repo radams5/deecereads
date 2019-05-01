@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { Menu, Icon} from 'antd'
+import SearchBar from '../SearchBar/SearchBar'
 import './navBar.css'
 const SubMenu = Menu.SubMenu
 class NavBar extends Component {
@@ -75,17 +76,15 @@ class NavBar extends Component {
 
             </Menu>
           </div>
-          <h1 className='WebsiteName' style={{ margin: "8px 0px" }} onClick={(e) => this.handleNavigation("/Home")}>deeceReads</h1>
+          <h1 className='WebsiteName' style={{ margin: "8px 0px" }} onClick={(e) => this.handleNavigation("/Home")}>deeceReads.com</h1>
           <h1 className='WebsiteInitials' onClick={(e) => this.handleNavigation("/Home")}>dR</h1>
-          {/* <div className="SearchBar" >
-          <SearchBar  setSearchState={this.setSearchState} location={this.props.location} history={this.props.history} />
-          </div> */}
           <div className='SmallSearchIcon'>
             <Icon type="search" onClick={(e) => this.handleNavigation('/BookSearch')} />
           </div>
+          <div className="BigScreenSearchLink" onClick={() =>this.handleNavigation('/BookSearch')}>Search Google Books</div>
           {this.props.username ? <div onClick={() => this.props.history.push('/UserHomePage')} className='Initials'>
             {this.props.username.charAt(0).toUpperCase()}
-          </div> : <div> </div>}
+          </div> : <div onClick={() =>this.handleNavigation('/')}> Login </div>}
 
 
         </div>

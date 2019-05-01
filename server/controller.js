@@ -128,6 +128,7 @@ CTRL={
 
   addToLibrary: async (req, res) => {
     try{
+      console.log(req.body)
       const {bookId} = req.body
       const {id} = req.session.user
       const db = req.app.get('db')

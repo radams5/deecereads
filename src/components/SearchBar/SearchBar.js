@@ -18,12 +18,10 @@ constructor(){
     this.setState({
       [prop]: val
     })
-    console.log(this.state)
   }
 
 
   handleGetGoogle = async (query) => {
-    console.log(this.state)
     if(this.props.location.pathname !== '/BookSearch'){
       this.props.history.push("/BookSearch")
     }
@@ -69,7 +67,7 @@ constructor(){
   
     return(
       <div className='SearchBarDiv'> 
-        <select className='SearchBarSelections' onChange={(e) => this.handleUpdateState(e.target.value, 'selectedValue')}>
+        <select className='SearchBarSelections' onChange={(e) => this.handleUpdateState(e.target.value, 'selectedValuepm')}>
           <option value="title">Title</option>
           <option value="author">Author</option>
           <option value="isbn">ISBN</option>

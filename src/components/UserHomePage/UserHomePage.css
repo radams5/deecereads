@@ -32,3 +32,10 @@
   width: 8em;
   margin: 2px;
 }
+@media screen and (min-width: 600px){ 
+  .UserPageGroupContainter{
+    padding: 30px 15px 3px 15px
+  }
+  
+
+}

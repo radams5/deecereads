@@ -2,35 +2,21 @@
   text-align: center;
 }
 
-
-
-/*------------------Login------------------------ */
-
-
-::-webkit-scrollbar {
-
-
+.Footer{
+  background-color: rgb(244, 234, 213);
+  width: 100vw;
+  height: 2vh;
+  
 }
+
 .BookButton{
   background: none;
-  border: none
+  border: none;
 }
-/* ---------Book Page--------------- */
-.BookPageMainDiv{
-  background-image: url(./images/bookpage_background.png);
-   background-size: cover;
-   padding-top: 2em;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
+.BookButton:hover{
+ cursor: pointer
 }
-.SearchImage{
-  width: 18em;
-  height: 25em;
-}
-.SummaryDiv{
-  margin: 5px 40px;
-}
+
 
 
 /* -----------Users Personal Library ----------*/
@@ -70,5 +56,4 @@ margin: 5px;
 }
 
 
-/* -----------Book Search Page ---------------- */
 

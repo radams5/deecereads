@@ -36,11 +36,11 @@ render(){
 
       return(
           <div>
-            <div className='ReturnedSearchInfoDiv'>
+            <Link to='/bookPage'><div className='ReturnedSearchInfoDiv'>
               <h4>{title}</h4>
               <h5>{authors}</h5>
-              <Link to='/bookPage'><button className='BookButton' onClick={() => this.props.addBook(bookToAdd)}>{img ? <img alt={title} src={img}/> : null}</button></Link>
-            </div>
+              <button className='BookButton' onClick={() => this.props.addBook(bookToAdd)}>{img ? <img alt={title} src={img}/> : null}</button>
+            </div></Link>
           </div>
         )
       })

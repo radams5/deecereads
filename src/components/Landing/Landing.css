@@ -33,4 +33,31 @@
   background: tan;  
   
 }
+@media screen and (min-width: 900px){ 
+  .NYTBestsellers{
+    padding: 3px 15px 0px 15px;
+    overflow: hidden;
+  }
+  .NYTBestsellers {
+   overflow-x: hidden
+  }
+  
+  .NYTBestSellerBookImg{
+    margin: 0 1em
+  }
 
+}
+@media screen and (min-width: 600px) and (max-width: 900px){ 
+  .NYTBestsellers{
+    padding: 30px 15px 0px 15px;
+   
+  }
+  .NYTBestsellers {
+   overflow-x: hidden
+  }
+  
+  .NYTBestSellerBookImg{
+    margin: 0 1em
+  }
+
+}

@@ -1,7 +1,7 @@
 .LoginMainDiv{
   background-image: url(../../images/bookshelf_background.jpg);
  background-size: cover;
- height: calc(100vh - 75px);
+ height: calc(100vh - 15vh);
  display: flex;
  justify-content: center;
  align-content: center;
@@ -17,9 +17,30 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-border-radius: 6px;
-  
+border-radius: 6px;  
+}
+.WebsiteName:hover{
+  cursor: pointer;
+}
+.BigScreenSearchLink:hover{
+  cursor: pointer;
+}
+.Initials:hover{
+  cursor: pointer;
 }
 .InputDiv{
 width: 80%
+}
+@media screen and (max-width: 599px){ 
+  .SmallScreenPrompt{
+  display: none
+  }
+}
+@media screen and (min-width: 600px){  
+  .LoginBox{
+    width: 50vw
+  }
+}
+button:hover{
+  cursor: pointer;
 }

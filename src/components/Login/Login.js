@@ -65,7 +65,7 @@ constructor(){
               <button onClick={this.login}>Login</button>
               <button onClick={this.register}>Register</button>
           </div>
-          
+          <h3 className='SmallScreenPrompt'>Check me out in Mobile View!</h3>
         </div>
       </div>
     </div>
