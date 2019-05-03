@@ -18,6 +18,7 @@ constructor(){
     this.setState({
       [prop]: val
     })
+    console.log(this.state)
   }
 
 
@@ -67,7 +68,7 @@ constructor(){
   
     return(
       <div className='SearchBarDiv'> 
-        <select className='SearchBarSelections' onChange={(e) => this.handleUpdateState(e.target.value, 'selectedValuepm')}>
+        <select className='SearchBarSelections' onChange={(e) => this.handleUpdateState(e.target.value, 'selectedValue')}>
           <option value="title">Title</option>
           <option value="author">Author</option>
           <option value="isbn">ISBN</option>
