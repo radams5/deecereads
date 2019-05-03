@@ -44,3 +44,9 @@ width: 80%
 button:hover{
   cursor: pointer;
 }
+@media screen and (max-height: 400px){ 
+ .LoginBox{
+  height: 50vh;
+  width: 70vw;
+ }
+}

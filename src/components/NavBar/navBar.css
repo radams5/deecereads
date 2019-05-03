@@ -2,10 +2,15 @@
   background-color: rgb(244, 234, 213);
   width: 100vw;
   height: 10vh;
+  display:flex;
+  align-items: center;
 }
 .navBar  h1 {
   margin: 8px 0px;
   size: 2em;
+}
+.Menu{
+  height: 100%;
 }
 
 .Initials{
@@ -35,8 +40,6 @@
   .WebsiteInitials{
     display: none
   }
- 
-
 }
 
 

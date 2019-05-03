@@ -55,7 +55,7 @@ constructor(){
   return(
     <div className="LoginMainDiv">
       <div className="LoginMainDivOpacitySheet">
-        <div className='LoginBox'>
+        <form className='LoginBox'>
           <h1>Please Login</h1>
             <div className='InputDiv'>
               <input placeholder='username' onChange={e =>    this.handleChange('username', e.target.value)}/>
@@ -66,7 +66,7 @@ constructor(){
               <button onClick={this.register}>Register</button>
           </div>
           <h3 className='SmallScreenPrompt'>Check me out in Mobile View!</h3>
-        </div>
+        </form>
       </div>
     </div>
     )

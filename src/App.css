@@ -17,6 +17,12 @@
 .BookButton:hover{
  cursor: pointer
 }
+@media screen and (max-height: 550px){ 
+ .NavBar{
+
+   height: 15vh;
+ }
+ }
 
 
 

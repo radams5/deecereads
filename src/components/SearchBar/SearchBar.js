@@ -18,7 +18,6 @@ constructor(){
     this.setState({
       [prop]: val
     })
-    console.log(this.state)
   }
 
 
@@ -63,11 +62,12 @@ constructor(){
       })  
 
   }
+  handlePress
 
   render(){
   
     return(
-      <div className='SearchBarDiv'> 
+      <form className='SearchBarDiv'> 
         <select className='SearchBarSelections' onChange={(e) => this.handleUpdateState(e.target.value, 'selectedValue')}>
           <option value="title">Title</option>
           <option value="author">Author</option>
@@ -79,9 +79,12 @@ constructor(){
           placeholder='Title, Author, ISBN'  value={this.state.searchBar} 
           onChange={e => this.handleUpdateState(e.target.value, 'searchBar')}
         />
-        <button onClick={() => this.handleGetGoogle(this.state.searchBar)} className='SearchBarButton'>Search</button>
+        <button onClick={() => this.handleGetGoogle(this.state.searchBar)} 
+        type='submit'
+  
+        className='SearchBarButton'>Search</button>
       
-      </div>
+      </form>
     )
   }
 }

@@ -109,8 +109,6 @@ class BookPage extends Component{
 
 
   render(){
-  console.log(this)
-
     return(
       <div>
       <div className="BookPageMainDiv">
