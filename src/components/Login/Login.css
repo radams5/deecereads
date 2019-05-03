@@ -1,7 +1,7 @@
 .LoginMainDiv{
   background-image: url(../../images/bookshelf_background.jpg);
  background-size: cover;
- height: calc(100vh - 15vh);
+ height: calc(100vh - 12vh);
  display: flex;
  justify-content: center;
  align-content: center;

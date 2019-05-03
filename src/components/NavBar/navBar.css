@@ -1,15 +1,13 @@
 .NavBar{
   background-color: rgb(244, 234, 213);
   width: 100vw;
-height: 10vh;
+  height: 10vh;
 }
 .navBar  h1 {
   margin: 8px 0px;
   size: 2em;
 }
-.Menu{
 
-}
 .Initials{
   background-color: white;
   height: 2em;

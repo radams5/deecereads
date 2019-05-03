@@ -6,7 +6,8 @@
   background-color: rgb(244, 234, 213);
   width: 100vw;
   height: 2vh;
-  
+  position: fixed;
+  bottom: 0
 }
 
 .BookButton{
