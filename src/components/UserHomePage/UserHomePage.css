@@ -9,7 +9,7 @@
 }
 .UserPageGroupContainter{
   background-image: url(../../images/TallShelf.png);
-  min-height: 40vh;
+  height: 40vh;
   background-size: cover;
   display: flex;
   flex-direction: column;

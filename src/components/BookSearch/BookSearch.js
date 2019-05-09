@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {addBook, updateBook} from '../../ducks/reducer'
 import SearchBar from '../SearchBar/SearchBar'
+import './BookSearch.css'
 
 
 class BookSearch extends Component{
@@ -39,7 +40,7 @@ render(){
             <Link to='/bookPage'><div className='ReturnedSearchInfoDiv'>
               <h4>{title}</h4>
               <h5>{authors}</h5>
-              <button className='BookButton' onClick={() => this.props.addBook(bookToAdd)}>{img ? <img alt={title} src={img}/> : null}</button>
+              <button className='BookButton' onClick={() => this.props.addBook(bookToAdd)}>{img ? <img alt={title} src={img} className='SearchResultImg'/> : null}</button>
             </div></Link>
           </div>
         )
