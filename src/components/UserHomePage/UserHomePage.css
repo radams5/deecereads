@@ -16,6 +16,9 @@
   padding: 20px;
  
 }
+.ShelfTitle{
+  margin-bottom: 0 
+}
 .SingleBookContainer{
   display: flex;
   overflow: auto;

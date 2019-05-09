@@ -169,11 +169,11 @@ import './UserHomePage.css'
       <div>
         <div className='UserPageCombinedContainers'>
           <div className='UserPageGroupContainter'>
-          <Link to='WishList'><h2>Wish List</h2></Link>
+          <Link to='WishList'><h2 className='ShelfTitle'>Wish List</h2></Link>
           <div className='SingleBookContainer'>{wishList}</div>
         </div> 
         <div className='UserPageGroupContainter'>
-          <Link to='/CurrentlyReading'><h2>Currently Reading</h2></Link>
+          <Link to='/CurrentlyReading'><h2 className='ShelfTitle'>Currently Reading</h2></Link>
           <div className='SingleBookContainer'>{currentlyReading}</div>
         </div>
         {/* <div>
@@ -181,7 +181,7 @@ import './UserHomePage.css'
           <div>{myGroups}</div>
         </div> */}
         <div className='UserPageGroupContainter'>
-          <Link to='Library'><h2>Library</h2></Link>
+          <Link to='Library'><h2 className='ShelfTitle'>Library</h2></Link>
           <div className='SingleBookContainer'>{library}</div>
         </div>
             
