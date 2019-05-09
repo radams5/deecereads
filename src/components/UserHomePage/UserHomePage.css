@@ -35,6 +35,12 @@
   width: 8em;
   margin: 2px;
 }
+.BookImageForSingleCollection{
+  height: 10em;
+  width: 8em;
+  margin: 2px 2px 2px 2px;
+}
+
 @media screen and (min-width: 600px){ 
   .UserPageGroupContainter{
     padding: 30px 15px 3px 15px

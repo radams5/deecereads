@@ -27,8 +27,8 @@
   flex-direction: column;
   height: calc(100vh - 150px);
   /* background-image: url(./images/bookshelf.png);   */
-  background-size: 100vw 30vh;
   background-repeat: repeat-y;
+  background-size: 100vw 30vh;
 }
 .UsersPersonalLibraryContainer{
   background-image: url(./images/bookshelf.png);  

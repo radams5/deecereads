@@ -42,7 +42,7 @@ render(){
 
           <Link to='/BookPage'>
             <button onClick={()=>this.props.updateBook(book)} className="BookButton">
-            <img src={book.img} alt={book.title} className='BookImage'/>
+            <img src={book.img} alt={book.title} className='BookImageForSingleCollection'/>
             </button>          
           </Link>
         
