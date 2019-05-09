@@ -57,6 +57,7 @@ constructor(){
       <div className="LoginMainDivOpacitySheet">
         <form className='LoginBox'>
           <h1>Please Login</h1>
+          <p>Hint user: asdf pass: asdf</p>
             <div className='InputDiv'>
               <input placeholder='username' onChange={e =>    this.handleChange('username', e.target.value)}/>
               <input type="password" required placeholder='password' onChange={e => this.handleChange('password', e.target.value)}/>
