@@ -14,7 +14,9 @@ constructor(){
   }
 }
 
-
+componentDidMount(){
+  console.log(this.props)
+}
 
   register = async () => {
    
@@ -24,20 +26,22 @@ constructor(){
     }
     try {
       let res = await axios.post('/register', user)
-      this.props.updateUser(res.data)
+      await this.props.updateUser(res.data)
       this.props.history.push('/Home')
     } catch(err) {
       alert('registration error, try a different username or password')
     }
   }
-
+  
   login = async () => {
     let user = {
       username: this.state.username,
       password: this.state.password
-      }
-      try {
-        let res = await axios.post('login', user)
+    }
+    try {
+      console.log(1111, this.props)
+      let res = await axios.post('login', user)
+      console.log(1111, res)
         await this.props.updateUser(res.data)
         
         this.props.history.push('/Home')

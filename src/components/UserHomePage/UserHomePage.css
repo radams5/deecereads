@@ -13,10 +13,11 @@
   background-size: cover;
   display: flex;
   flex-direction: column;
-  padding: 20px;
+ 
  
 }
 .ShelfTitle{
+  margin-top: .5em;
   margin-bottom: 0 
 }
 .SingleBookContainer{

@@ -14,8 +14,8 @@ import BookSearch from './components/BookSearch/BookSearch'
 
 export default (
   <Switch>
-    <Route  path='/Home' component={Landing}/>
     <Route  exact path='/' component={Login}/>
+    <Route  path='/Home' component={Landing}/>
     <Route  path='/BookPage' component={BookPage}/>
     <Route  path='/UserHomePage' component={UserHomePage}/>
     <Route  path='/BookSearch' component={BookSearch}/>
